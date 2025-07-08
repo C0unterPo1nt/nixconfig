@@ -58,6 +58,7 @@
     variant = "";
   };
 
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -151,6 +152,7 @@
     anki-bin
     obs-studio
     git
+    lshw
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
