@@ -153,6 +153,7 @@
     obs-studio
     git
     lshw
+    displaylink
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -188,7 +189,14 @@
   };
 
   # Load nvidia driver for Xorg and Wayland
-  services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = ["nvidia" "displaylink"];
+
+  #services.xserver.displayManager.sessionCommands = ''
+ #   ${lib.getBin pkgs.xorg.xrandr}/bin/xrandr --setprovideroutputsource 2 0
+#  '';
+
+  hardware.graphics.extraPackages = with pkgs; [ vaapiIntel intel-media-driver ];
+
 
   hardware.nvidia = {
 
@@ -219,6 +227,12 @@
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
     package = config.boot.kernelPackages.nvidiaPackages.stable;
+
+    prime = {
+      sync.enable = true;
+      intelBusId = "PCI:0:2:0";
+      nvidiaBusId = "PCI:1:0:0";
+    };
   };
 
 }
