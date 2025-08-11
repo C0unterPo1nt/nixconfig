@@ -108,6 +108,16 @@
       obs-studio
       qbittorrent
       godot
+      mozillavpn
+      #libre and spellchecker
+      libreoffice-qt
+      hunspell
+      hunspellDicts.en_US
+      #
+      vlc
+      discord
+      vscode
+      zoom-us
     ];
     shell = pkgs.zsh;
   };
@@ -123,8 +133,7 @@
     autosuggestions.enable = true;
     syntaxHighlighting.enable = true;
     shellAliases = {
-      nixconfig = "sudo nano /etc/nixos/configuration.nix";
-      nixrebuild = "sudo -i nixos-rebuild switch";
+      nixrebuild = "sudo -i nixos-rebuild switch --flake ~/.nixconfig/";
     };
   };
 
@@ -154,19 +163,8 @@
   environment.systemPackages = with pkgs; [
     vim
     wget
-    vlc
-    discord
-    nitrogen
-    vscode
-    zoom-us
-    #libre and spellchecker
-    libreoffice-qt
-    hunspell
-    hunspellDicts.en_US
-    #
     git
     lshw
-    mozillavpn
     opentabletdriver
     kdePackages.kcalc # Calculator
     kdePackages.kcharselect # Tool to select and copy special characters from all installed fonts
@@ -180,7 +178,7 @@
     hardinfo2 # System information and benchmarks for Linux systems
     wayland-utils # Wayland utilities
     wl-clipboard # Command-line copy/paste utilities for Wayland
-
+    waybar
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
