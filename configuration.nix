@@ -33,6 +33,8 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
+  i18n.extraLocales = ["ja_JP.UTF-8/UTF-8"];
+
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_US.UTF-8";
     LC_IDENTIFICATION = "en_US.UTF-8";
@@ -45,22 +47,24 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  # desktop
+  services = {
+    desktopManager.plasma6.enable = true;
 
-  # Enable the Cinnamon Desktop Environment.
-  services.xserver.displayManager.lightdm.enable = true;
-  services.xserver.desktopManager.cinnamon.enable = true;
+    displayManager.sddm.enable = true;
 
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
+    displayManager.sddm.wayland.enable = true;
   };
 
+  environment.plasma6.excludePackages = with pkgs.kdePackages; [
+    konsole
+  ];
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
+
+  # Tablet driver
+  hardware.opentabletdriver.enable = true;
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
@@ -78,19 +82,16 @@
     #media-session.enable = true;
   };
 
-  # Sunshine game streaming
   services.sunshine = {
     enable = true;
     autoStart = true;
     capSysAdmin = true;
     openFirewall = true;
     settings = {
-       output_name = 1;
+      output_name = 0;
     };
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.phoenix = {
@@ -98,13 +99,29 @@
     description = "Lucina Farrell";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-    #  thunderbird
-       ghostty
+      ghostty
+      krita
+      peek
+      parsec-bin
+      godot
     ];
+    shell = pkgs.zsh;
   };
 
   programs.git = {
     enable = true;
+  };
+
+  #shell
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    autosuggestions.enable = true;
+    syntaxHighlighting.enable = true;
+    shellAliases = {
+      nixconfig = "sudo nano /etc/nixos/configuration.nix";
+      nixrebuild = "sudo -i nixos-rebuild switch";
+    };
   };
 
   # phoenixmedia nas mount
@@ -125,20 +142,14 @@
     localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
   };
 
-  # bash aliases
-  environment.shellAliases = {
-    nixconfig = "sudo nano /etc/nixos/configuration.nix";
-    nixrebuild = "sudo -i nixos-rebuild switch";
-  };
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+    vim
+    wget
     vlc
     discord
     nitrogen
@@ -148,14 +159,30 @@
     libreoffice-qt
     hunspell
     hunspellDicts.en_US
+    #
     spotify
-    parsec-bin
     anki-bin
     obs-studio
     git
     lshw
     displaylink
-    godot
+    mozillavpn
+    qbittorrent
+    opentabletdriver
+    kdePackages.kcalc # Calculator
+    kdePackages.kcharselect # Tool to select and copy special characters from all installed fonts
+    kdePackages.kcolorchooser # A small utility to select a color
+    kdePackages.kolourpaint # Easy-to-use paint program
+    kdePackages.ksystemlog # KDE SystemLog Application
+    kdePackages.sddm-kcm # Configuration module for SDDM
+    kdiff3 # Compares and merges 2 or 3 files or directories
+    kdePackages.isoimagewriter # Optional: Program to write hybrid ISO files onto USB disks
+    kdePackages.partitionmanager # Optional Manage the disk devices, partitions and file systems on your computer
+    hardinfo2 # System information and benchmarks for Linux systems
+    haruna # Open source video player built with Qt/QML and libmpv
+    wayland-utils # Wayland utilities
+    wl-clipboard # Command-line copy/paste utilities for Wayland
+
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
