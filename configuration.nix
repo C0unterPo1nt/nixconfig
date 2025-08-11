@@ -103,6 +103,10 @@
       krita
       peek
       parsec-bin
+      spotify
+      anki-bin
+      obs-studio
+      qbittorrent
       godot
     ];
     shell = pkgs.zsh;
@@ -160,14 +164,9 @@
     hunspell
     hunspellDicts.en_US
     #
-    spotify
-    anki-bin
-    obs-studio
     git
     lshw
-    displaylink
     mozillavpn
-    qbittorrent
     opentabletdriver
     kdePackages.kcalc # Calculator
     kdePackages.kcharselect # Tool to select and copy special characters from all installed fonts
@@ -179,7 +178,6 @@
     kdePackages.isoimagewriter # Optional: Program to write hybrid ISO files onto USB disks
     kdePackages.partitionmanager # Optional Manage the disk devices, partitions and file systems on your computer
     hardinfo2 # System information and benchmarks for Linux systems
-    haruna # Open source video player built with Qt/QML and libmpv
     wayland-utils # Wayland utilities
     wl-clipboard # Command-line copy/paste utilities for Wayland
 
@@ -218,7 +216,7 @@
   };
 
   # Load nvidia driver for Xorg and Wayland
-  services.xserver.videoDrivers = ["nvidia" "displaylink"];
+  services.xserver.videoDrivers = ["nvidia"];
 
   #services.xserver.displayManager.sessionCommands = ''
  #   ${lib.getBin pkgs.xorg.xrandr}/bin/xrandr --setprovideroutputsource 2 0
