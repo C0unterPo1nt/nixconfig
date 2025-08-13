@@ -82,59 +82,12 @@
     #media-session.enable = true;
   };
 
-  services.sunshine = {
-    enable = true;
-    autoStart = true;
-    capSysAdmin = true;
-    openFirewall = true;
-    settings = {
-      output_name = 0;
-    };
-  };
-
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.phoenix = {
     isNormalUser = true;
     description = "Lucina Farrell";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      ghostty
-      krita
-      peek
-      parsec-bin
-      spotify
-      anki-bin
-      obs-studio
-      qbittorrent
-      godot
-      mozillavpn
-      #libre and spellchecker
-      libreoffice-qt
-      hunspell
-      hunspellDicts.en_US
-      #
-      vlc
-      discord
-      vscode
-      zoom-us
-    ];
     shell = pkgs.zsh;
-  };
-
-  programs.git = {
-    enable = true;
-  };
-
-  #shell
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    autosuggestions.enable = true;
-    syntaxHighlighting.enable = true;
-    shellAliases = {
-      nixrebuild = "sudo -i nixos-rebuild switch --flake ~/.nixconfig/";
-    };
   };
 
   # phoenixmedia nas mount
@@ -144,19 +97,17 @@
   };
   boot.supportedFilesystems = [ "nfs" ];
 
-  # Install firefox.
-  programs.firefox.enable = true;
-  
-  # Install steam.
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-    localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
-  };
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+
+  # Install steam.
+  programs.steam = {
+      enable = true;
+      remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+      localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
+  };
+
+  programs.zsh.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -165,11 +116,10 @@
     wget
     git
     lshw
-    opentabletdriver
+    opentabletdriver # drawing tablet driver
     kdePackages.kcalc # Calculator
     kdePackages.kcharselect # Tool to select and copy special characters from all installed fonts
     kdePackages.kcolorchooser # A small utility to select a color
-    kdePackages.kolourpaint # Easy-to-use paint program
     kdePackages.ksystemlog # KDE SystemLog Application
     kdePackages.sddm-kcm # Configuration module for SDDM
     kdiff3 # Compares and merges 2 or 3 files or directories
@@ -178,7 +128,7 @@
     hardinfo2 # System information and benchmarks for Linux systems
     wayland-utils # Wayland utilities
     wl-clipboard # Command-line copy/paste utilities for Wayland
-    waybar
+    zsh
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
