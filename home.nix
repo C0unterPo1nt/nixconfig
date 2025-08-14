@@ -50,6 +50,26 @@
         };
     };
 
+    wayland.windowManager.hyprland = {
+        enable = true;
+        package = pkgs.hyprland;
+        settings = {
+            "$mainmod" = "SUPER";
+            monitor = [
+                "HDMI-A-4, 2560x1440@60, 2560x0, 1"
+                "HDMI-A-5, 2560x1440@60, 0x0, 1"
+            ];
+            bind = [
+                "$mainmod, G, exec, ghostty"
+                "$mainmod, W, exec, pgrep wofi >/dev/null 2>&1 && killall .wofi-wrapped || wofi --show=drun"
+                "$mainmod, Q, killactive"
+            ];
+            bindm = [
+                "$mainmod, mouse:272, movewindow"
+            ];
+        };
+    };
+
     # Install firefox.
     programs.firefox.enable = true;
 
