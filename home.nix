@@ -21,6 +21,7 @@
         ghostty
         waybar # Taskbar
         wofi # Application Launcher
+        hyprpaper
 
         #libre and spellchecker
         libreoffice-qt
@@ -50,6 +51,7 @@
         };
     };
 
+    # Hyprland
     wayland.windowManager.hyprland = {
         enable = true;
         package = pkgs.hyprland;
@@ -66,6 +68,23 @@
             ];
             bindm = [
                 "$mainmod, mouse:272, movewindow"
+            ];
+        };
+    };
+
+    # Wallpaper
+    services.hyprpaper = {
+        enable = true;
+        package = pkgs.hyprpaper;
+        settings ={
+            preload = [
+                "/mnt/phoenixmedia/Library/photos/Background/jin_yanxia_crt.png"
+                "/mnt/phoenixmedia/Library/photos/Background/jin_in_troia.png"
+            ];
+
+            wallpaper = [
+                "HDMI-A-4,/mnt/phoenixmedia/Library/photos/Background/jin_yanxia_crt.png"
+                "HDMI-A-5,/mnt/phoenixmedia/Library/photos/Background/jin_in_troia.png"    
             ];
         };
     };
