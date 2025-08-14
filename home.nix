@@ -4,10 +4,15 @@
     home.username = "phoenix";
     home.homeDirectory = "/home/phoenix";
 
+    imports = [
+        ./dotfiles/hypr/hyprland.nix
+        ./dotfiles/hypr/hyprpaper.nix
+    ];
+
     home.packages = with pkgs; [
         krita
         parsec-bin
-        spotify
+        spotify 
         anki-bin
         obs-studio
         qbittorrent
@@ -48,44 +53,6 @@
         autosuggestion.enable = true;
         shellAliases = {
             nixrebuild = "sudo -i nixos-rebuild switch --flake /home/phoenix/.nixconfig/";
-        };
-    };
-
-    # Hyprland
-    wayland.windowManager.hyprland = {
-        enable = true;
-        package = pkgs.hyprland;
-        settings = {
-            "$mainmod" = "SUPER";
-            monitor = [
-                "HDMI-A-4, 2560x1440@60, 2560x0, 1"
-                "HDMI-A-5, 2560x1440@60, 0x0, 1"
-            ];
-            bind = [
-                "$mainmod, G, exec, ghostty"
-                "$mainmod, W, exec, pgrep wofi >/dev/null 2>&1 && killall .wofi-wrapped || wofi --show=drun"
-                "$mainmod, Q, killactive"
-            ];
-            bindm = [
-                "$mainmod, mouse:272, movewindow"
-            ];
-        };
-    };
-
-    # Wallpaper
-    services.hyprpaper = {
-        enable = true;
-        package = pkgs.hyprpaper;
-        settings ={
-            preload = [
-                "/mnt/phoenixmedia/Library/photos/Background/jin_yanxia_crt.png"
-                "/mnt/phoenixmedia/Library/photos/Background/jin_in_troia.png"
-            ];
-
-            wallpaper = [
-                "HDMI-A-4,/mnt/phoenixmedia/Library/photos/Background/jin_yanxia_crt.png"
-                "HDMI-A-5,/mnt/phoenixmedia/Library/photos/Background/jin_in_troia.png"    
-            ];
         };
     };
 
