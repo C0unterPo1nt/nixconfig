@@ -7,6 +7,8 @@
     imports = [
         ./dotfiles/hypr/hyprland.nix
         ./dotfiles/hypr/hyprpaper.nix
+        ./dotfiles/wofi/wofi.nix
+        ./dotfiles/waybar/waybar.nix
     ];
 
     home.packages = with pkgs; [

@@ -160,6 +160,10 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.05"; # Did you read the comment?
 
+  # CPU Frequency Governor
+  # Without this the cpu speed is limited to powersave levels
+  powerManagement.cpuFreqGovernor = "performance";
+
   # Enable OpenGL
   hardware.graphics = {
     enable = true;

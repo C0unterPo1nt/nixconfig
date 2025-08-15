@@ -1,0 +1,36 @@
+window {
+    border-radius: 10px;
+    border: 1px solid #DA70EB;
+    background-color: #1A0E1B;
+    opacity: 50%;
+}
+
+#text {
+    color: #FCDECF;
+    font-size: 15pt;
+}
+
+#entry:selected {
+    background-color: #DA70EB;
+    border-radius: 10px;
+}
+
+#text:selected {
+    color: #1A0E1B;
+}
+
+#input {
+    padding: 10px;
+    color: #FCDECF;
+    background-color: #1A0E1B;
+    font-size: 15pt;
+    border: 1px solid #DA70EB;
+    border-width: 2px 2px 1px 2px;
+    border-radius: 10px;
+}
+
+#scroll {
+    border: 0;
+    border-radius: 10px;
+    /*style the scrollbar*/
+}

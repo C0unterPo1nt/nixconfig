@@ -1,0 +1,17 @@
+window#waybar {
+    background-color: #1A0E1B;
+    border-bottom: 1px solid #DA70EB;
+    color: #FCDECF;
+}
+
+.modules-right {
+    background-color: transparent;
+}
+
+#workspaces button {
+    color: #FCDECF;
+}
+
+#workspaces button.hosting-monitor {
+    color: #DA70EB;
+}
