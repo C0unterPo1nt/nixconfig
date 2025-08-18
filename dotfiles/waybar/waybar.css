@@ -1,17 +1,24 @@
+@import "../../.nixconfig/colors/digital_lavender.css";
+
 window#waybar {
-    background-color: #1A0E1B;
-    border-bottom: 1px solid #DA70EB;
+    background-color: @dark;
+    border-bottom: 1px solid @accent;
     color: #FCDECF;
 }
 
 .modules-right {
     background-color: transparent;
+    padding-right: 15px;
 }
 
 #workspaces button {
-    color: #FCDECF;
+    color: @foreground;
 }
 
 #workspaces button.hosting-monitor {
-    color: #DA70EB;
+    color: @accent;
+}
+
+#cpu, #disk, #memory, #gpu-usage {
+    padding-left: 10px;
 }

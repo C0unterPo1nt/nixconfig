@@ -29,6 +29,7 @@
         waybar # Taskbar
         wofi # Application Launcher
         hyprpaper
+        nautilus
 
         #libre and spellchecker
         libreoffice-qt
@@ -38,6 +39,8 @@
         # utils
         ripgrep
         neofetch
+        fastfetch
+        screenfetch
         which
         killall # kill command 
     ];

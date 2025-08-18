@@ -1,31 +1,33 @@
+@import "./.nixconfig/colors/digital_lavender.css";
+
 window {
     border-radius: 10px;
-    border: 1px solid #DA70EB;
-    background-color: #1A0E1B;
+    border: 1px solid @accent;
+    background-color: @dark;
     opacity: 50%;
 }
 
 #text {
-    color: #FCDECF;
+    color: @foreground;
     font-size: 15pt;
 }
 
 #entry:selected {
-    background-color: #DA70EB;
+    background-color: @accent;
     border-radius: 10px;
 }
 
 #text:selected {
-    color: #1A0E1B;
+    color: @dark;
 }
 
 #input {
     padding: 10px;
-    color: #FCDECF;
-    background-color: #1A0E1B;
+    color: @foreground;
+    background-color: @dark;
     font-size: 15pt;
-    border: 1px solid #DA70EB;
-    border-width: 2px 2px 1px 2px;
+    border: 1px solid @accent;
+    border-width: 2px 2px 1px 2px; 
     border-radius: 10px;
 }
 
