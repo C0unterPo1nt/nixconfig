@@ -3,12 +3,35 @@
 {
     home.username = "phoenix";
     home.homeDirectory = "/home/phoenix";
+    fonts.fontconfig = {
+        enable = true;
+        defaultFonts.monospace = ["Mononoki Nerd Font"];
+        defaultFonts.sansSerif = ["Mononoki Nerd Font"];
+    };
+
+    home.pointerCursor = {
+        gtk.enable = true;
+        # x11.enable = true;
+        package = pkgs.bibata-cursors;
+        name = "Bibata-Modern-Classic";
+        size = 16;
+    };
+
+    gtk = {
+        enable = true;
+
+        font = {
+            name = "Mononoki Nerd Font";
+            size = 11;
+        };
+    };
 
     imports = [
         ./dotfiles/hypr/hyprland.nix
         ./dotfiles/hypr/hyprpaper.nix
         ./dotfiles/wofi/wofi.nix
         ./dotfiles/waybar/waybar.nix
+        ./dotfiles/ghostty/ghostty.nix
     ];
 
     home.packages = with pkgs; [
@@ -24,12 +47,10 @@
         discord
         vscode
         zoom-us
-        ksnip
-        ghostty
-        waybar # Taskbar
-        wofi # Application Launcher
         hyprpaper
         nautilus
+        vim
+        
 
         #libre and spellchecker
         libreoffice-qt
@@ -38,11 +59,18 @@
 
         # utils
         ripgrep
-        neofetch
         fastfetch
         screenfetch
         which
         killall # kill command 
+        wev # Wayland Event Viewer
+        wayland-utils # Wayland utilities
+
+        #fonts
+        nerd-fonts.mononoki
+
+        #drivers
+        opentabletdriver # drawing tablet driver
     ];
 
     programs.home-manager.enable = true;
@@ -60,6 +88,11 @@
             nixrebuild = "sudo -i nixos-rebuild switch --flake /home/phoenix/.nixconfig/";
         };
     };
+
+    #programs.starship = {
+    #    enable = true;
+    #    enableZshIntegration = true;
+    #};
 
     # Install firefox.
     programs.firefox.enable = true;
