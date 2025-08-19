@@ -4,6 +4,7 @@ window#waybar {
     background-color: @dark;
     border-bottom: 1px solid @accent;
     color: #FCDECF;
+    font-family: "Mononoki Nerd Font";
 }
 
 .modules-right {
@@ -21,4 +22,15 @@ window#waybar {
 
 #cpu, #disk, #memory, #gpu-usage {
     padding-left: 10px;
+}
+
+#privacy {
+    padding-right: 10px;
+}
+
+#cava {
+    border: 0px solid @accent;
+    border-radius: 10px;
+    padding-left: 4px;
+    padding-right: 4px;
 }

@@ -50,7 +50,8 @@
         hyprpaper
         nautilus
         vim
-        
+        cava # Audio Visualizer
+        astroterm # Command Line Celestial Viewer
 
         #libre and spellchecker
         libreoffice-qt
