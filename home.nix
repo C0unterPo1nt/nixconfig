@@ -66,6 +66,7 @@
         killall # kill command 
         wev # Wayland Event Viewer
         wayland-utils # Wayland utilities
+        grim # screenshots
 
         #fonts
         nerd-fonts.mononoki
