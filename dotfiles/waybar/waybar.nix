@@ -8,45 +8,50 @@
         settings = {
             main = {
                 modules-right = ["privacy" "clock"];
-                modules-center = ["hyprland/window"];
-                modules-left = ["hyprland/workspaces" "cava"];
+                modules-left = ["hyprland/workspaces" "hyprland/window"];
                 output = ["HDMI-A-4"];
-                height = 30;
+                height = 36;
+                margin = "5 5 0";
                 "hyprland/window" = {
                     format = "{title}";
                     separate-outputs = true;
                     rewrite = {
-                        "" = "󱄅 ";
-                        "(.*) — Mozilla Firefox" = "󰈹 ";
-                        ".* - Visual Studio Code" = " ";
-                        ".* - Discord" = " ";
-                        "Spotify Premium" = "󰓇 ";
+                        "" = "󱄅 Phoenix";
+                        "(.*) — Mozilla Firefox" = "󰈹  $1";
+                        "(.*) - Visual Studio Code" = " $1";
+                        "(.*) - Discord" = "  $1";
+                        "Discord Updater" = "  Updating...";
+                        "Spotify Premium" = "󰓇 Spotify";
                     };
                 };
                 "hyprland/workspaces" = {
                     all-outputs = true;
                 };
-                "cava" = {
-                    "bars" = 14;
-                    "format-icons" =  ["▁" "▂" "▃" "▄" "▅" "▆" "▇" "█" ];
-                    "bar_delimiter" = 0;
+                "privacy" = {
+                    	"ignore" = [
+                            {
+                                "type" = "audio-in";
+                                "name" = "cava";
+                            }
+                        ];
                 };
             };
             second = {
-                modules-center = ["hyprland/window"];
-                modules-left = ["hyprland/workspaces"];
+                modules-center = ["cava" "mpd"];
+                modules-left = ["hyprland/workspaces" "hyprland/window" ];
                 modules-right = [ "custom/gpu-usage" "memory" "cpu" "disk"];
                 output = ["HDMI-A-5"];
-                height = 30;
+                height = 36;
+                margin = "5 5 0";
                 "hyprland/window" = {
                     format = "{title}";
                     separate-outputs = true;
                     rewrite = {
-                        "" = "󱄅 ";
-                        "(.*) — Mozilla Firefox" = "󰈹 ";
-                        ".* - Visual Studio Code" = " ";
-                        ".* - Discord" = " ";
-                        "Spotify Premium" = "󰓇 ";
+                        "" = "󱄅 Phoenix";
+                        "(.*) — Mozilla Firefox" = "󰈹  $1";
+                        "(.*) - Visual Studio Code" = "  $1";
+                        "(.*) - Discord" = "  $1";
+                        "Discord Updater" = "  Updating...";
                     };
                 };
                 "hyprland/workspaces" = {
@@ -59,13 +64,18 @@
                     format = "  {percentage}%";
                 };
                 "disk" = {
-                    format = "󰋊 {percentage_used}%";
+                    format = "󰋊  {percentage_used}%";
                 };
                 "custom/gpu-usage" = {
                     "exec" = "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits";
                     "format" = "󰡁 {}%";
                     "return-type" = "";
                     "interval" = 1;
+                };
+                "cava" = {
+                    "bars" = 14;
+                    "format-icons" =  ["▁" "▂" "▃" "▄" "▅" "▆" "▇" "█" ];
+                    "bar_delimiter" = 0;
                 };
             };
         };

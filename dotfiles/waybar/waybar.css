@@ -1,36 +1,35 @@
 @import "../../.nixconfig/colors/digital_lavender.css";
 
 window#waybar {
-    background-color: @dark;
-    border-bottom: 1px solid @accent;
-    color: #FCDECF;
+    background: transparent;
     font-family: "Mononoki Nerd Font";
 }
 
-.modules-right {
-    background-color: transparent;
-    padding-right: 15px;
+#workspaces {
+    padding: 0;
 }
 
 #workspaces button {
     color: @foreground;
+    border-radius: 20px;
 }
 
-#workspaces button.hosting-monitor {
-    color: @accent;
+#workspaces button:hover {
+    color: @accent_deep;
+    background-color: @dark_light;
 }
 
-#cpu, #disk, #memory, #gpu-usage {
-    padding-left: 10px;
+#workspaces button.active {
+    color: @accent_deep;
 }
 
-#privacy {
-    padding-right: 10px;
-}
-
-#cava {
-    border: 0px solid @accent;
-    border-radius: 10px;
-    padding-left: 4px;
-    padding-right: 4px;
+.module, #privacy {
+    background-color: @dark;
+    border: 1px solid @accent;
+    border-radius: 20px;
+    color: @foreground;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding-left: 12px;
+    padding-right: 12px;
 }
