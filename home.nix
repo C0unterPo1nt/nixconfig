@@ -52,6 +52,7 @@
         vim
         cava # Audio Visualizer
         astroterm # Command Line Celestial Viewer
+        caligula # disk image writer
 
         #libre and spellchecker
         libreoffice-qt
