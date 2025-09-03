@@ -53,6 +53,7 @@
         cava # Audio Visualizer
         astroterm # Command Line Celestial Viewer
         caligula # disk image writer
+        qimgv # photo viewer
 
         #libre and spellchecker
         libreoffice-qt
