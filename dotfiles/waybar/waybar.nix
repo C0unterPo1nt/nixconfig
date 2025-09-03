@@ -7,8 +7,9 @@
         systemd.enable = true;
         settings = {
             main = {
-                modules-right = ["privacy" "clock"];
+                modules-right = ["privacy" "clock#date"];
                 modules-left = ["hyprland/workspaces" "hyprland/window"];
+                modules-center = ["clock#time"];
                 output = ["HDMI-A-4"];
                 height = 36;
                 margin = "5 5 0";
@@ -34,6 +35,12 @@
                                 "name" = "cava";
                             }
                         ];
+                };
+                "clock#date" = {
+                    format = "{:%A, %B%e}";
+                };
+                "clock#time" = {
+                    format = "  {:%H:%M}";
                 };
             };
             second = {
