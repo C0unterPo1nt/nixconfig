@@ -47,6 +47,13 @@
 
                 # float
                 "$mainmod, F, togglefloating"
+
+                # minimize
+                "$mainmod, S, togglespecialworkspace, magic"
+                "$mainmod, S, movetoworkspace, +0"
+                "$mainmod, S, togglespecialworkspace, magic"
+                "$mainmod, S, movetoworkspace, special:magic"
+                "$mainmod, S, togglespecialworkspace, magic"
             ];
             bindm = [
                 "$mainmod, mouse:272, movewindow"
