@@ -8,6 +8,7 @@
             "$mainmod" = "SUPER";
             "$secondmod" = "SUPER_ALT";
             "$thirdmod" = "SUPER_CTRL";
+            "$fourthmod" = "CTRL";
             "$monitor1" = "HDMI-A-4";
             "$monitor2" = "HDMI-A-5";
             workspace = [
@@ -43,9 +44,13 @@
                 # fullscreen
                 ", F11, fullscreen, 1"
                 "$mainmod, F11, fullscreen, 0"
+
+                # float
+                "$mainmod, F, togglefloating"
             ];
             bindm = [
                 "$mainmod, mouse:272, movewindow"
+                "$fourthmod, mouse:272, resizewindow"
             ];
             decoration = {
                 rounding = 10;
