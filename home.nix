@@ -9,7 +9,6 @@
     imports = [
         ./dotfiles/hypr/hyprland.nix
         ./dotfiles/hypr/hyprpaper.nix
-        ./dotfiles/wofi/wofi.nix
         ./dotfiles/waybar/waybar.nix
         ./dotfiles/ghostty/ghostty.nix
         ./dotfiles/stylix/stylix.nix
@@ -61,38 +60,29 @@
         opentabletdriver # drawing tablet driver
     ];
 
-    programs.home-manager.enable = true;
+    gtk.enable = true;
 
-    programs.git = {
-        enable = true;
-    };
-
-    programs.ghostty = {
-        enable = true;
-    };
-
-    programs.rofi = {
-        enable = true;
-    };
-
-    #shell
-    programs.zsh = {
-        enable = true;
-        enableCompletion = true;
-        autosuggestion.enable = true;
-        shellAliases = {
-            nixrebuild = "sudo -i nixos-rebuild switch --flake /home/phoenix/.nixconfig/";
-            homerebuild = "home-manager switch --flake .#phoenix";
+    programs = {
+        home-manager.enable = true;
+        fuzzel.enable = true;
+        git.enable = true;
+        ghostty.enable = true;
+        zsh = {
+            enable = true;
+            enableCompletion = true;
+            autosuggestion.enable = true;
+            shellAliases = {
+                nixrebuild = "sudo -i nixos-rebuild switch --flake /home/phoenix/.nixconfig/";
+                homerebuild = "home-manager switch --flake .#phoenix";
+            };
         };
+        firefox.enable = true;
     };
 
     #programs.starship = {
     #    enable = true;
     #    enableZshIntegration = true;
     #};
-
-    # Install firefox.
-    programs.firefox.enable = true;
 
     home.stateVersion = "25.05";
 }

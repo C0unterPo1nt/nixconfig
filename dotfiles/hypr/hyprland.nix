@@ -22,7 +22,7 @@
             ];
             bind = [
                 "$mainmod, Return, exec, ghostty"
-                "$mainmod, Space, exec, pgrep wofi >/dev/null 2>&1 && killall .wofi-wrapped || wofi --show=drun"
+                "$mainmod, Space, exec, pkill fuzzel || fuzzel"
                 "$mainmod, Q, killactive"
 
                 # focus nav

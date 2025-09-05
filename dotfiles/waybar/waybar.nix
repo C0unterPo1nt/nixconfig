@@ -86,7 +86,6 @@
                 };
             };
         };
-        # TODO fix the button bottom border issue
         style = lib.mkAfter ''
             window#waybar {
                 background: transparent;
@@ -110,8 +109,8 @@
             }
 
             .module, #privacy {
-                background-color: @base00;
-                border: 1px solid @base04;
+                background-color: @base01;
+                border: 1px solid @base0D;
                 border-radius: 20px;
                 color: @base05;
                 margin-left: 5px;
