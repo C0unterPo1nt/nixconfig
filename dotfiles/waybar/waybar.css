@@ -1,5 +1,3 @@
-@import "../../.nixconfig/colors/digital_lavender.css";
-
 window#waybar {
     background: transparent;
     font-family: "Mononoki Nerd Font";
@@ -10,24 +8,12 @@ window#waybar {
 }
 
 #workspaces button {
-    color: @foreground;
     border-radius: 20px;
-}
-
-#workspaces button:hover {
-    color: @accent_deep;
-    background-color: @dark_light;
-}
-
-#workspaces button.active {
-    color: @accent_deep;
 }
 
 .module, #privacy {
-    background-color: @dark;
-    border: 1px solid @accent;
+    border: 1px solid;
     border-radius: 20px;
-    color: @foreground;
     margin-left: 5px;
     margin-right: 5px;
     padding-left: 12px;

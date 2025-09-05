@@ -20,5 +20,11 @@
                 name = "Mononoki Nerd Font";
             };
         };
+        cursor = {
+            package = pkgs.bibata-cursors;
+            name = "Bibata-Modern-Classic";
+            size = 16;
+        };
+        targets.waybar.addCss = true;
     };
 }

@@ -5,25 +5,13 @@
     home.homeDirectory = "/home/phoenix";
     
     nixpkgs.config.allowUnfree = true;
-    fonts.fontconfig = {
-        enable = true;
-        defaultFonts.monospace = ["Mononoki Nerd Font"];
-        defaultFonts.sansSerif = ["Mononoki Nerd Font"];
-    };
-
-    home.pointerCursor = {
-        gtk.enable = true;
-        package = pkgs.bibata-cursors;
-        name = "Bibata-Modern-Classic";
-        size = 16;
-    };
 
     imports = [
         ./dotfiles/hypr/hyprland.nix
-        #./dotfiles/hypr/hyprpaper.nix
-        #./dotfiles/wofi/wofi.nix
-        #./dotfiles/waybar/waybar.nix
-        #./dotfiles/ghostty/ghostty.nix
+        ./dotfiles/hypr/hyprpaper.nix
+        ./dotfiles/wofi/wofi.nix
+        ./dotfiles/waybar/waybar.nix
+        ./dotfiles/ghostty/ghostty.nix
         ./dotfiles/stylix/stylix.nix
     ];
 
@@ -83,13 +71,8 @@
         enable = true;
     };
 
-    programs.wofi = {
+    programs.rofi = {
         enable = true;
-        package = pkgs.wofi;
-        settings = {
-            width = "40%";
-            height = "35%";
-        };
     };
 
     #shell

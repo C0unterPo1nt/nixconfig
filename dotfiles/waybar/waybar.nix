@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{lib, pkgs, ...}:
 
 {
     programs.waybar = {
@@ -86,6 +86,39 @@
                 };
             };
         };
-        style = ./waybar.css;
+        # TODO fix the button bottom border issue
+        style = lib.mkAfter ''
+            window#waybar {
+                background: transparent;
+            }
+
+            #workspaces {
+                padding: 0;
+            }
+
+            #workspaces button {
+                color: @base05;
+                border-radius: 20px;
+            }
+
+            #workspaces button:hover {
+                color: @base08;
+            }
+
+            #workspaces button.active {
+                color: @base08;
+            }
+
+            .module, #privacy {
+                background-color: @base00;
+                border: 1px solid @base04;
+                border-radius: 20px;
+                color: @base05;
+                margin-left: 5px;
+                margin-right: 5px;
+                padding-left: 12px;
+                padding-right: 12px;
+            }
+        '';
     };
 }
