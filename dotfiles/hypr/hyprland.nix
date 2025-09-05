@@ -62,10 +62,10 @@
             decoration = {
                 rounding = 10;
             };
-            general = {
-                "col.inactive_border" = "rgb(2B212C)";
-                "col.active_border" = "rgb(DA70EB)";
-            };
+            #general = {
+            #    "col.inactive_border" = "rgb(2B212C)";
+            #    "col.active_border" = "rgb(DA70EB)";
+            #};
             animations = {
                 workspace_wraparound = true;
             };

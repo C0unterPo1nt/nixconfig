@@ -3,6 +3,8 @@
 {
     home.username = "phoenix";
     home.homeDirectory = "/home/phoenix";
+    
+    nixpkgs.config.allowUnfree = true;
     fonts.fontconfig = {
         enable = true;
         defaultFonts.monospace = ["Mononoki Nerd Font"];
@@ -16,21 +18,13 @@
         size = 16;
     };
 
-    gtk = {
-        enable = true;
-
-        font = {
-            name = "Mononoki Nerd Font";
-            size = 11;
-        };
-    };
-
     imports = [
         ./dotfiles/hypr/hyprland.nix
-        ./dotfiles/hypr/hyprpaper.nix
-        ./dotfiles/wofi/wofi.nix
-        ./dotfiles/waybar/waybar.nix
-        ./dotfiles/ghostty/ghostty.nix
+        #./dotfiles/hypr/hyprpaper.nix
+        #./dotfiles/wofi/wofi.nix
+        #./dotfiles/waybar/waybar.nix
+        #./dotfiles/ghostty/ghostty.nix
+        ./dotfiles/stylix/stylix.nix
     ];
 
     home.packages = with pkgs; [
@@ -68,9 +62,12 @@
         wev # Wayland Event Viewer
         wayland-utils # Wayland utilities
         grim # screenshots
+        lshw
 
         #fonts
-        nerd-fonts.mononoki
+
+        # themes
+        nightfox-gtk-theme
 
         #drivers
         opentabletdriver # drawing tablet driver
@@ -82,6 +79,19 @@
         enable = true;
     };
 
+    programs.ghostty = {
+        enable = true;
+    };
+
+    programs.wofi = {
+        enable = true;
+        package = pkgs.wofi;
+        settings = {
+            width = "40%";
+            height = "35%";
+        };
+    };
+
     #shell
     programs.zsh = {
         enable = true;
@@ -89,6 +99,7 @@
         autosuggestion.enable = true;
         shellAliases = {
             nixrebuild = "sudo -i nixos-rebuild switch --flake /home/phoenix/.nixconfig/";
+            homerebuild = "home-manager switch --flake .#phoenix";
         };
     };
 

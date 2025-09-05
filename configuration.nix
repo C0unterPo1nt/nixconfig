@@ -106,9 +106,9 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     wget
-    lshw
     hardinfo2 # System information and benchmarks for Linux systems
     wl-clipboard # Command-line copy/paste utilities for Wayland
+    home-manager
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
