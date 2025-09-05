@@ -25,7 +25,6 @@
         mozillavpn
         vlc
         discord
-        vscode
         zoom-us
         hyprpaper
         nautilus
@@ -77,6 +76,16 @@
             };
         };
         firefox.enable = true;
+        vscode = {
+            enable = true;
+            package = pkgs.vscode.fhs;
+            profiles.phoenix = {
+                extensions = with pkgs.vscode-extensions; [ bbenoist.nix ];
+                userSettings = {
+                    "window.newWindowProfile" = "phoenix";
+                };
+            };
+        };
     };
 
     #programs.starship = {

@@ -25,6 +25,9 @@
             name = "Bibata-Modern-Classic";
             size = 16;
         };
-        targets.waybar.addCss = false;
+        targets = {
+            waybar.addCss = false;
+            vscode.profileNames = [ "phoenix" ];
+        };
     };
 }
