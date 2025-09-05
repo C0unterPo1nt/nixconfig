@@ -25,6 +25,6 @@
             name = "Bibata-Modern-Classic";
             size = 16;
         };
-        targets.waybar.addCss = true;
+        targets.waybar.addCss = false;
     };
 }
