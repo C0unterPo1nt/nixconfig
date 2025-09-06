@@ -9,11 +9,13 @@
     imports = [
         ./dotfiles/hypr/hyprland.nix
         ./dotfiles/hypr/hyprpaper.nix
+        ./dotfiles/hypr/hyprlock.nix
         ./dotfiles/waybar/waybar.nix
         ./dotfiles/ghostty/ghostty.nix
         ./dotfiles/stylix/stylix.nix
         ./dotfiles/starship.nix
         ./dotfiles/fnott.nix
+        ./dotfiles/fuzzel/fuzzel.nix
     ];
 
     home.packages = with pkgs; [
@@ -66,7 +68,6 @@
 
     programs = {
         home-manager.enable = true;
-        fuzzel.enable = true;
         git.enable = true;
         ghostty.enable = true;
         zsh = {
