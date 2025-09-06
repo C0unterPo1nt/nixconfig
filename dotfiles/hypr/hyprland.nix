@@ -62,10 +62,15 @@
             decoration = {
                 rounding = 10;
             };
-            #general = {
-            #    "col.inactive_border" = "rgb(2B212C)";
-            #    "col.active_border" = "rgb(DA70EB)";
-            #};
+            bezier = [
+                "easeInOutExpo, 0.87, 0, 0.13, 1"
+                "easeInQuint, 0.64, 0, 0.78, 0"
+            ];
+            animation = [
+                "windows, 1, 3, easeInOutExpo, slide"
+                "windowsMove, 1, 2, easeInOutExpo"
+                "fadeOut, 1, 5, easeInQuint"
+            ];
             animations = {
                 workspace_wraparound = true;
             };
