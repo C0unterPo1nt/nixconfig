@@ -12,6 +12,7 @@
         ./dotfiles/waybar/waybar.nix
         ./dotfiles/ghostty/ghostty.nix
         ./dotfiles/stylix/stylix.nix
+        ./dotfiles/starship.nix
     ];
 
     home.packages = with pkgs; [
@@ -87,11 +88,6 @@
             };
         };
     };
-
-    #programs.starship = {
-    #    enable = true;
-    #    enableZshIntegration = true;
-    #};
 
     home.stateVersion = "25.05";
 }
