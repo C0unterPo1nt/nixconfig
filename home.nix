@@ -13,6 +13,7 @@
         ./dotfiles/ghostty/ghostty.nix
         ./dotfiles/stylix/stylix.nix
         ./dotfiles/starship.nix
+        ./dotfiles/fnott.nix
     ];
 
     home.packages = with pkgs; [
@@ -50,6 +51,7 @@
         wayland-utils # Wayland utilities
         grim # screenshots
         lshw
+        libnotify # notification daemon tool
 
         #fonts
 
