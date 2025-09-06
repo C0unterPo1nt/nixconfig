@@ -86,6 +86,7 @@
                 extensions = with pkgs.vscode-extensions; [ bbenoist.nix ];
                 userSettings = {
                     "window.newWindowProfile" = "phoenix";
+                    "workbench.editor.empty.hint" = "hidden";
                 };
             };
         };
