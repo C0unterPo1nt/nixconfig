@@ -12,7 +12,7 @@
                 default-timeout = 4;
                 idle-timeout = 4;
                 border-radius = 10;
-                max-icon-size = 64;
+                max-icon-size = 128;
             };
         };
     };
