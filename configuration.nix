@@ -39,9 +39,10 @@
   };
 
   # desktop
-  services = {
-    displayManager.sddm.enable = true;
-    displayManager.sddm.wayland.enable = true;
+  services.displayManager.sddm ={
+      enable = true;
+      wayland.enable = true;
+      theme = "chili";
   };
   programs.hyprland.enable = true;
 
@@ -101,6 +102,7 @@
     hardinfo2 # System information and benchmarks for Linux systems
     wl-clipboard # Command-line copy/paste utilities for Wayland
     home-manager
+    sddm-chili-theme
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
