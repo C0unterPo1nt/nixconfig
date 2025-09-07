@@ -78,6 +78,9 @@
             animations = {
                 workspace_wraparound = true;
             };
+            xwayland = {
+                force_zero_scaling = true;
+            };
         };
     };
 }
