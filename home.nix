@@ -56,11 +56,6 @@
         lshw
         libnotify # notification daemon tool
 
-        #fonts
-
-        # themes
-        nightfox-gtk-theme
-
         #drivers
         opentabletdriver # drawing tablet driver
     ];
