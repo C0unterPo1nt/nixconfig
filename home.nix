@@ -7,15 +7,17 @@
     nixpkgs.config.allowUnfree = true;
 
     imports = [
-        ./dotfiles/hypr/hyprland.nix
-        ./dotfiles/hypr/hyprpaper.nix
-        ./dotfiles/hypr/hyprlock.nix
-        ./dotfiles/waybar/waybar.nix
-        ./dotfiles/ghostty/ghostty.nix
-        ./dotfiles/stylix/stylix.nix
-        ./dotfiles/starship.nix
-        ./dotfiles/fnott.nix
-        ./dotfiles/fuzzel/fuzzel.nix
+        ./configs/hypr/hyprland.nix
+        ./configs/hypr/hyprpaper.nix
+        ./configs/hypr/hyprlock.nix
+        ./configs/terminal/ghostty.nix
+        ./configs/terminal/starship.nix
+        ./configs/terminal/zsh.nix
+        ./configs/waybar.nix
+        ./configs/stylix.nix
+        ./configs/fnott.nix
+        ./configs/fuzzel.nix
+        ./configs/vscode.nix
     ];
 
     home.packages = with pkgs; [
@@ -30,9 +32,7 @@
         vlc
         discord
         zoom-us
-        hyprpaper
         nautilus
-        vim
         cava # Audio Visualizer
         astroterm # Command Line Celestial Viewer
         caligula # disk image writer
@@ -45,16 +45,19 @@
         hunspellDicts.en_US
 
         # utils
-        ripgrep
+        ripgrep # grep but fast
         fastfetch
         screenfetch
-        which
+        which # check if a program is installed
         killall # kill command 
         wev # Wayland Event Viewer
         wayland-utils # Wayland utilities
         grim # screenshots
-        lshw
+        lshw # Hardware configuration info
         libnotify # notification daemon tool
+        wget
+        hardinfo2 # System information and benchmarks for Linux systems
+        wl-clipboard # Command-line copy/paste utilities for Wayland
 
         #drivers
         opentabletdriver # drawing tablet driver
@@ -65,26 +68,7 @@
     programs = {
         home-manager.enable = true;
         git.enable = true;
-        zsh = {
-            enable = true;
-            enableCompletion = true;
-            autosuggestion.enable = true;
-            shellAliases = {
-                nixrebuild = "sudo -i nixos-rebuild switch --flake /home/phoenix/.nixconfig/";
-                homerebuild = "home-manager switch --flake .#phoenix";
-            };
-        };
-        vscode = {
-            enable = true;
-            package = pkgs.vscode.fhs;
-            profiles.phoenix = {
-                extensions = with pkgs.vscode-extensions; [ bbenoist.nix ];
-                userSettings = {
-                    "window.newWindowProfile" = "phoenix";
-                    "workbench.editor.empty.hint" = "hidden";
-                };
-            };
-        };
+        vim.enable = true;
     };
 
     home.stateVersion = "25.05";
