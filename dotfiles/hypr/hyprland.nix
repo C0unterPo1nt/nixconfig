@@ -13,8 +13,9 @@
             "$monitor2" = "HDMI-A-5";
             workspace = [
                 "1, monitor:$monitor2, default:true, persistent:true"
-                "2, monitor:$monitor1, default:true, persistent:true"
-                "3, persistent:true"
+                "2, monitor:$monitor2, default:true, persistent:true"
+                "3, monitor:$monitor2, persistent:true"
+                "4, monitor:$monitor1, default:true, persistent:true"
             ];
             monitor = [
                 "$monitor1, preferred, auto-right, 2"
@@ -38,8 +39,10 @@
                 "$secondmod, Down, movewindow, d"
 
                 # workspaces
-                "$thirdmod, Left, focusworkspaceoncurrentmonitor, -1"
-                "$thirdmod, Right, focusworkspaceoncurrentmonitor, +1"
+                "$thirdmod, Left, focusmonitor, $monitor2"
+                "$thirdmod, Left, workspace, m-1"
+                "$thirdmod, Right, focusmonitor, $monitor2"
+                "$thirdmod, Right, workspace, m+1"
 
                 # fullscreen
                 ", F11, fullscreen, 1"
@@ -69,15 +72,20 @@
             bezier = [
                 "easeInOutExpo, 0.87, 0, 0.13, 1"
                 "easeInQuint, 0.64, 0, 0.78, 0"
+                "easeInOutQuint, 0.87, 0, 0.13, 1"
             ];
             animation = [
                 "windows, 1, 3, easeInOutExpo, slide"
-                "windowsMove, 1, 2, easeInOutExpo"
+                "windowsMove, 1, 3, easeInOutExpo"
                 "fadeOut, 1, 5, easeInQuint"
+                "workspaces, 1, 5, easeInOutQuint"
             ];
             animations = {
                 workspace_wraparound = true;
             };
+            windowrule = [
+                "animation gnomed, floating:1"
+            ];
             xwayland = {
                 force_zero_scaling = true;
             };

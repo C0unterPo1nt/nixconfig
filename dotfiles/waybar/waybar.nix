@@ -8,7 +8,7 @@
         settings = {
             main = {
                 modules-right = ["privacy" "clock#date"];
-                modules-left = ["hyprland/workspaces" "hyprland/window"];
+                modules-left = ["hyprland/window"];
                 modules-center = ["clock#time"];
                 output = ["HDMI-A-4"];
                 height = 36;
@@ -24,9 +24,6 @@
                         "Discord Updater" = "  Updating...";
                         "Spotify Premium" = "󰓇 Spotify";
                     };
-                };
-                "hyprland/workspaces" = {
-                    all-outputs = true;
                 };
                 "privacy" = {
                     	"ignore" = [
@@ -60,9 +57,6 @@
                         "(.*) - Discord" = "  $1";
                         "Discord Updater" = "  Updating...";
                     };
-                };
-                "hyprland/workspaces" = {
-                    all-outputs = true;
                 };
                 "cpu" = {
                     format = "  {usage}%";
@@ -104,7 +98,7 @@
                 color: @base08;
             }
 
-            #workspaces button.active {
+            #workspaces button.visible {
                 color: @base08;
             }
 
