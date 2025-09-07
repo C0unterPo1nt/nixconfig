@@ -19,6 +19,7 @@
                     rewrite = {
                         "" = "󱄅 Phoenix";
                         "(.*) — Mozilla Firefox" = "󰈹  $1";
+                        "(.*) — Zen Browser" = "󰖟  $1";
                         "(.*) - Visual Studio Code" = " $1";
                         "(.*) - Discord" = "  $1";
                         "Discord Updater" = "  Updating...";
@@ -53,9 +54,11 @@
                     rewrite = {
                         "" = "󱄅 Phoenix";
                         "(.*) — Mozilla Firefox" = "󰈹  $1";
-                        "(.*) - Visual Studio Code" = "  $1";
+                        "(.*) — Zen Browser" = "󰖟  $1";
+                        "(.*) - Visual Studio Code" = " $1";
                         "(.*) - Discord" = "  $1";
                         "Discord Updater" = "  Updating...";
+                        "Spotify Premium" = "󰓇 Spotify";
                     };
                 };
                 "cpu" = {
