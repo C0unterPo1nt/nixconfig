@@ -17,7 +17,7 @@
                     format = "{title} {initialClass}";
                     separate-outputs = true;
                     rewrite = {
-                        "" = "󱄅 Phoenix";
+                        " " = "󱄅 Phoenix";
                         "(.*) — Zen Browser zen" = "󰖟  $1";
                         "(.*) - Visual Studio Code code" = "  $1";
                         "(.*) - Discord discord" = "  $1";
@@ -53,7 +53,7 @@
                     format = "{title} {initialClass}";
                     separate-outputs = true;
                     rewrite = {
-                        "" = "󱄅 Phoenix";
+                        " " = "󱄅 Phoenix";
                         "(.*) — Zen Browser zen" = "󰖟  $1";
                         "(.*) - Visual Studio Code code" = "  $1";
                         "(.*) - Discord discord" = "  $1";
