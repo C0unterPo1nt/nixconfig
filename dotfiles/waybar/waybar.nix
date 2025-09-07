@@ -12,7 +12,7 @@
                 modules-center = ["clock#time"];
                 output = ["HDMI-A-4"];
                 height = 36;
-                margin = "5 5 0";
+                margin = "3 3 0";
                 "hyprland/window" = {
                     format = "{title}";
                     separate-outputs = true;

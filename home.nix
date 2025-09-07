@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, zen-browser, ... }:
 
 {
     home.username = "phoenix";
@@ -37,6 +37,7 @@
         astroterm # Command Line Celestial Viewer
         caligula # disk image writer
         qimgv # photo viewer
+        zen-browser.default
 
         #libre and spellchecker
         libreoffice-qt

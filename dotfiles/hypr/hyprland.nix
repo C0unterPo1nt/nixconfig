@@ -17,8 +17,8 @@
                 "3, persistent:true"
             ];
             monitor = [
-                "$monitor1, 2560x1440@60, 2560x0, 1"
-                "$monitor2, 2560x1440@60, 0x0, 1"
+                "$monitor1, preferred, auto-right, 2"
+                "$monitor2, preferred, auto-left, 2"
             ];
             bind = [
                 "$mainmod, Return, exec, ghostty"
@@ -59,6 +59,10 @@
                 "$mainmod, mouse:272, movewindow"
                 "$fourthmod, mouse:272, resizewindow"
             ];
+            general = {
+                gaps_out = 5;
+                gaps_in = 5;
+            };
             decoration = {
                 rounding = 10;
             };
