@@ -68,6 +68,10 @@
             };
             decoration = {
                 rounding = 10;
+                blur = {
+                    size = 1;
+                    passes = 3;
+                };
             };
             bezier = [
                 "easeInOutExpo, 0.87, 0, 0.13, 1"
