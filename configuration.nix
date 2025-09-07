@@ -10,7 +10,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "nixos";
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Enable networking
@@ -22,30 +22,28 @@
   time.timeZone = "America/Los_Angeles";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocales = ["ja_JP.UTF-8/UTF-8"];
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_US.UTF-8";
-    LC_IDENTIFICATION = "en_US.UTF-8";
-    LC_MEASUREMENT = "en_US.UTF-8";
-    LC_MONETARY = "en_US.UTF-8";
-    LC_NAME = "en_US.UTF-8";
-    LC_NUMERIC = "en_US.UTF-8";
-    LC_PAPER = "en_US.UTF-8";
-    LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+    extraLocales = ["ja_JP.UTF-8/UTF-8"];
+    extraLocaleSettings = {
+      LC_ADDRESS = "en_US.UTF-8";
+      LC_IDENTIFICATION = "en_US.UTF-8";
+      LC_MEASUREMENT = "en_US.UTF-8";
+      LC_MONETARY = "en_US.UTF-8";
+      LC_NAME = "en_US.UTF-8";
+      LC_NUMERIC = "en_US.UTF-8";
+      LC_PAPER = "en_US.UTF-8";
+      LC_TELEPHONE = "en_US.UTF-8";
+      LC_TIME = "en_US.UTF-8";
+    };
   };
 
   # desktop
   services = {
-    # desktopManager.plasma6.enable = true;
-
     displayManager.sddm.enable = true;
-
     displayManager.sddm.wayland.enable = true;
   };
+  programs.hyprland.enable = true;
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
@@ -56,8 +54,8 @@
   hardware.opentabletdriver.enable = true;
 
   # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
+  services.pulseaudio.enable = false;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -78,6 +76,7 @@
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
   };
+  programs.zsh.enable = true;
 
   # phoenixmedia nas mount
   fileSystems."/mnt/phoenixmedia" = {
@@ -88,17 +87,12 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-  
-  programs.hyprland.enable = true;
 
-  # Install steam.
   programs.steam = {
-      enable = true;
-      remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-      localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
+    enable = true;
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
   };
-
-  programs.zsh.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -146,12 +140,7 @@
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = ["nvidia"];
 
-  #services.xserver.displayManager.sessionCommands = ''
- #   ${lib.getBin pkgs.xorg.xrandr}/bin/xrandr --setprovideroutputsource 2 0
-#  '';
-
   hardware.graphics.extraPackages = with pkgs; [ vaapiIntel intel-media-driver ];
-
 
   hardware.nvidia = {
 

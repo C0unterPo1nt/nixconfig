@@ -70,7 +70,6 @@
     programs = {
         home-manager.enable = true;
         git.enable = true;
-        ghostty.enable = true;
         zsh = {
             enable = true;
             enableCompletion = true;
