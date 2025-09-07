@@ -14,16 +14,17 @@
                 height = 36;
                 margin = "3 3 0";
                 "hyprland/window" = {
-                    format = "{title}";
+                    format = "{title} {initialClass}";
                     separate-outputs = true;
                     rewrite = {
                         "" = "󱄅 Phoenix";
-                        "(.*) — Mozilla Firefox" = "󰈹  $1";
-                        "(.*) — Zen Browser" = "󰖟  $1";
-                        "(.*) - Visual Studio Code" = " $1";
-                        "(.*) - Discord" = "  $1";
+                        "(.*) — Zen Browser zen" = "󰖟  $1";
+                        "(.*) - Visual Studio Code code" = "  $1";
+                        "(.*) - Discord discord" = "  $1";
                         "Discord Updater" = "  Updating...";
-                        "Spotify Premium" = "󰓇 Spotify";
+                        "(.*) spotify" = "󰓇  $1";
+                        "Spotify Premium spotify" = "󰓇  Spotify";
+                        "(.*) com.mitchellh.ghostty" = "  $1";
                     };
                 };
                 "privacy" = {
@@ -49,16 +50,18 @@
                 height = 36;
                 margin = "5 5 0";
                 "hyprland/window" = {
-                    format = "{title}";
+                    format = "{title} {initialClass}";
                     separate-outputs = true;
                     rewrite = {
                         "" = "󱄅 Phoenix";
-                        "(.*) — Mozilla Firefox" = "󰈹  $1";
-                        "(.*) — Zen Browser" = "󰖟  $1";
-                        "(.*) - Visual Studio Code" = " $1";
-                        "(.*) - Discord" = "  $1";
+                        "(.*) — Zen Browser zen" = "󰖟  $1";
+                        "(.*) - Visual Studio Code code" = "  $1";
+                        "(.*) - Discord discord" = "  $1";
                         "Discord Updater" = "  Updating...";
-                        "Spotify Premium" = "󰓇 Spotify";
+                        "(.*) spotify" = "󰓇  $1";
+                        "Spotify Premium spotify" = "󰓇  Spotify";
+                        "(.*) com.mitchellh.ghostty" = "  $1";
+                        "(.*) krita" = "  $1";
                     };
                 };
                 "cpu" = {
