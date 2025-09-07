@@ -80,7 +80,6 @@
                 homerebuild = "home-manager switch --flake .#phoenix";
             };
         };
-        firefox.enable = true;
         vscode = {
             enable = true;
             package = pkgs.vscode.fhs;
