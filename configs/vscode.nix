@@ -9,6 +9,8 @@
             userSettings = {
                 "window.newWindowProfile" = "phoenix";
                 "workbench.editor.empty.hint" = "hidden";
+                "workbench.settings.showAISearchToggle" = "false";
+                "remote.defaultExtensionsIfInstalledLocally" = [];
             };
         };
     };
