@@ -58,6 +58,7 @@
         wget
         hardinfo2 # System information and benchmarks for Linux systems
         wl-clipboard # Command-line copy/paste utilities for Wayland
+        slurp
 
         #drivers
         opentabletdriver # drawing tablet driver

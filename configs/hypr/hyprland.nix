@@ -26,6 +26,8 @@
                 "$mainmod, Space, exec, pkill fuzzel || fuzzel" # application launcher
                 "$mainmod, Q, killactive" # close window
                 "$secondmod, Q, exec, hyprlock" # lock screen
+                # TODO this is a hack please fix
+                "$mainmod, S, exec, sh ~/Documents/scripts/screenshot/screenshot.sh" # screenshot
 
                 # focus nav
                 "$mainmod, Left, movefocus, l"
@@ -51,13 +53,6 @@
 
                 # float
                 "$mainmod, F, togglefloating"
-
-                # minimize
-                "$mainmod, S, togglespecialworkspace, magic"
-                "$mainmod, S, movetoworkspace, +0"
-                "$mainmod, S, togglespecialworkspace, magic"
-                "$mainmod, S, movetoworkspace, special:magic"
-                "$mainmod, S, togglespecialworkspace, magic"
             ];
             bindm = [
                 "$mainmod, mouse:272, movewindow"
