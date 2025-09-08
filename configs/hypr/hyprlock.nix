@@ -19,12 +19,14 @@
                 {
                     path = "/mnt/phoenixmedia/Library/photos/Background/jin_yanxia_crt.png";
                     monitor = "HDMI-A-4";
-                    blur_passes = 2;
+                    blur_size = 2;
+                    blur_passes = 3;
                 }
                 {
                     path = "/mnt/phoenixmedia/Library/photos/Background/jin_in_troia.png";
                     monitor = "HDMI-A-5";
-                    blur_passes = 2;
+                    blur_size = 2;
+                    blur_passes = 3;
                 }
             ];
             label = [
@@ -34,6 +36,12 @@
                     font_size = 60;
                     font_family = "Mononoki Nerd Font";
                     position = "0, 10%";
+                }
+                {
+                    monitor = "HDMI-A-5";
+                    text = builtins.readFile ./assets/miku_bored.txt;
+                    font_size = 20;
+                    font_family = "Mononoki Nerd Font";
                 }
             ];
             input-field = {

@@ -22,9 +22,10 @@
                 "$monitor2, preferred, auto-left, 2"
             ];
             bind = [
-                "$mainmod, Return, exec, ghostty"
-                "$mainmod, Space, exec, pkill fuzzel || fuzzel"
-                "$mainmod, Q, killactive"
+                "$mainmod, Return, exec, ghostty" # lauch term
+                "$mainmod, Space, exec, pkill fuzzel || fuzzel" # application launcher
+                "$mainmod, Q, killactive" # close window
+                "$secondmod, Q, exec, hyprlock" # lock screen
 
                 # focus nav
                 "$mainmod, Left, movefocus, l"
