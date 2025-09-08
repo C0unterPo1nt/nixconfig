@@ -87,6 +87,8 @@
                 "animation gnomed, floating:1"
                 "float, title:(Open File[s]*)"
                 "float, title:(Open Folder*)"
+                "float, class:(qimgv)"
+                "size 75%, 75%, class:(qimgv)"
             ];
             layerrule = [
                 "blur, waybar"
