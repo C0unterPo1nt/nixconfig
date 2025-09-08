@@ -90,8 +90,8 @@
             };
             windowrule = [
                 "animation gnomed, floating:1"
-                "float, title:(Open File)"
-                "float, title:(Open Folder)"
+                "float, title:(Open File[s]*)"
+                "float, title:(Open Folder*)"
             ];
             xwayland = {
                 force_zero_scaling = true;

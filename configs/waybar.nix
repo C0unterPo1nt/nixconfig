@@ -109,7 +109,7 @@
             }
 
             .module, #privacy {
-                background-color: @base01;
+                background-color: alpha(@base01, 0.6);
                 border: 1px solid @base0D;
                 border-radius: 20px;
                 color: @base05;
