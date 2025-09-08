@@ -26,8 +26,7 @@
                 "$mainmod, Space, exec, pkill fuzzel || fuzzel" # application launcher
                 "$mainmod, Q, killactive" # close window
                 "$secondmod, Q, exec, hyprlock" # lock screen
-                # TODO this is a hack please fix
-                "$mainmod, S, exec, sh ~/Documents/scripts/screenshot/screenshot.sh" # screenshot
+                "$mainmod, S, exec, grim -g \"$(slurp)\" - | swappy -f -" # screenshot
 
                 # focus nav
                 "$mainmod, Left, movefocus, l"

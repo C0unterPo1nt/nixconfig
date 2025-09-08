@@ -52,13 +52,14 @@
         killall # kill command 
         wev # Wayland Event Viewer
         wayland-utils # Wayland utilities
-        grim # screenshots
         lshw # Hardware configuration info
         libnotify # notification daemon tool
         wget
         hardinfo2 # System information and benchmarks for Linux systems
         wl-clipboard # Command-line copy/paste utilities for Wayland
-        slurp
+        grim # screenshots
+        slurp # screen selection
+        swappy # screenshot editing
 
         #drivers
         opentabletdriver # drawing tablet driver
