@@ -93,6 +93,10 @@
                 "float, title:(Open File[s]*)"
                 "float, title:(Open Folder*)"
             ];
+            layerrule = [
+                "blur, waybar"
+                "ignorealpha 0, waybar"
+            ];
             xwayland = {
                 force_zero_scaling = true;
             };
