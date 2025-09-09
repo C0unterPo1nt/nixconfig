@@ -9,6 +9,7 @@
             "$secondmod" = "SUPER_ALT";
             "$thirdmod" = "SUPER_CTRL";
             "$fourthmod" = "CTRL";
+            "$fifthmod" = "ALT";
             "$monitor1" = "HDMI-A-4";
             "$monitor2" = "HDMI-A-5";
             workspace = [
@@ -45,6 +46,8 @@
                 "$thirdmod, Left, workspace, m-1"
                 "$thirdmod, Right, focusmonitor, $monitor2"
                 "$thirdmod, Right, workspace, m+1"
+                "$mainmod, Tab, focusmonitor, $monitor2"
+                "$mainmod, Tab, workspace, m+1"
 
                 # fullscreen
                 ", F11, fullscreen, 1"
@@ -52,6 +55,9 @@
 
                 # float
                 "$mainmod, F, togglefloating"
+            ];
+            bindr = [
+                "$mainmod, Super_L, exec, pkill fuzzel || fuzzel" # application launcher
             ];
             bindm = [
                 "$mainmod, mouse:272, movewindow"
