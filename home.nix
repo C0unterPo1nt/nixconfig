@@ -48,6 +48,7 @@
         ripgrep # grep but fast
         fastfetch
         screenfetch
+        nitch # screen fetch util, deprecated
         which # check if a program is installed
         killall # kill command 
         wev # Wayland Event Viewer
