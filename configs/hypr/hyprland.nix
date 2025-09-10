@@ -80,10 +80,15 @@
                 "easeInOutQuint, 0.87, 0, 0.13, 1"
             ];
             animation = [
+                # Windows
                 "windows, 1, 3, easeInOutExpo, slide"
                 "windowsMove, 1, 3, easeInOutExpo"
                 "fadeOut, 1, 5, easeInQuint"
+                # Workspaces
                 "workspaces, 1, 5, easeInOutQuint"
+                # Layers
+                "layers, 1, 3, easeInOutExpo, slide"
+                "fadeLayersOut, 1, 5, easeInQuint"
             ];
             animations = {
                 workspace_wraparound = true;
@@ -99,6 +104,7 @@
             layerrule = [
                 "blur, waybar"
                 "ignorealpha 0, waybar"
+                "blur, launcher" # Fuzzel
             ];
             xwayland = {
                 force_zero_scaling = true;
