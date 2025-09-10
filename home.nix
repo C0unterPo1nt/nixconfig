@@ -65,6 +65,7 @@
         grim # screenshots
         slurp # screen selection
         swappy # screenshot editing
+        wf-recorder # screen recording
 
         #drivers
         opentabletdriver # drawing tablet driver
