@@ -3,6 +3,9 @@
 {
     home.username = "phoenix";
     home.homeDirectory = "/home/phoenix";
+    home.sessionVariables = {
+        TERMINAL = "ghostty";
+    };
     
     nixpkgs.config.allowUnfree = true;
 
