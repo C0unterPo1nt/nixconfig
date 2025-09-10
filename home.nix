@@ -10,6 +10,7 @@
         ./configs/hypr/hyprland.nix
         ./configs/hypr/hyprpaper.nix
         ./configs/hypr/hyprlock.nix
+        ./configs/hypr/hypridle.nix
         ./configs/terminal/ghostty.nix
         ./configs/terminal/starship.nix
         ./configs/terminal/zsh.nix
