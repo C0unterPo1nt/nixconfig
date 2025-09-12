@@ -19,12 +19,15 @@
                     rewrite = {
                         " " = "󱄅 Phoenix";
                         "(.*) — Zen Browser zen" = "󰖟  $1";
+                        "Zen Browser zen" = "󰖟  Zen Browser";
                         "(.*) - Visual Studio Code code" = "  $1";
                         "(.*) - Discord discord" = "  $1";
                         "Discord Updater" = "  Updating...";
                         "(.*) spotify" = "󰓇  $1";
                         "Spotify Premium spotify" = "󰓇  Spotify";
                         "(.*) com.mitchellh.ghostty" = "  $1";
+                        "(.*) krita" = "  $1";
+                        "(.*) steam" = "󰓓 $1";
                     };
                 };
                 "privacy" = {
@@ -55,6 +58,7 @@
                     rewrite = {
                         " " = "󱄅 Phoenix";
                         "(.*) — Zen Browser zen" = "󰖟  $1";
+                        "Zen Browser zen" = "󰖟  Zen Browser";
                         "(.*) - Visual Studio Code code" = "  $1";
                         "(.*) - Discord discord" = "  $1";
                         "Discord Updater" = "  Updating...";
@@ -62,6 +66,7 @@
                         "Spotify Premium spotify" = "󰓇  Spotify";
                         "(.*) com.mitchellh.ghostty" = "  $1";
                         "(.*) krita" = "  $1";
+                        "(.*) steam" = "󰓓 $1";
                     };
                 };
                 "cpu" = {
