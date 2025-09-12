@@ -19,7 +19,7 @@
         ./configs/terminal/zsh.nix
         ./configs/waybar.nix
         ./configs/stylix.nix
-        ./configs/fnott.nix
+        ./configs/dunst.nix
         ./configs/fuzzel.nix
         ./configs/vscode.nix
     ];
@@ -78,6 +78,8 @@
         git.enable = true;
         vim.enable = true;
     };
+
+    services.hyprpolkitagent.enable = true;
 
     home.stateVersion = "25.05";
 }

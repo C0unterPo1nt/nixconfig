@@ -105,6 +105,9 @@
                 "blur, waybar"
                 "ignorealpha 0, waybar"
                 "blur, launcher" # Fuzzel
+                "ignorealpha 0, launcher"
+                "blur, notifications" # Dunst
+                "ignorealpha 0, notifications"
             ];
             xwayland = {
                 force_zero_scaling = true;
