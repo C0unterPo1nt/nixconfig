@@ -80,9 +80,14 @@
   programs.zsh.enable = true;
 
   # phoenixmedia nas mount
-  fileSystems."/mnt/phoenixmedia" = {
-    device = "10.0.0.28:/phoenixmedia";
-    fsType = "nfs";
+  fileSystems = {
+      "/mnt/phoenixmedia" = {
+        device = "10.0.0.28:/phoenixmedia";
+        fsType = "nfs";
+      };
+      "/mnt/hdd" = {
+        device = "/dev/sdb2";
+      };
   };
   boot.supportedFilesystems = [ "nfs" ];
 
