@@ -5,7 +5,17 @@
         enable = true;
         package = pkgs.vscode.fhs;
         profiles.phoenix = {
-            extensions = with pkgs.vscode-extensions; [ bbenoist.nix ];
+            extensions = with pkgs.vscode-extensions; [ 
+                bbenoist.nix
+                ms-python.python 
+            ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+                {
+                    name = "indenticator";
+                    publisher = "sirtori";
+                    version = "0.7.0";
+                    sha256 = "J5iNO6V5US+GFyNjNNA5u9H2pKPozWKjQWcLAhl+BjY=";
+                }
+            ];
             userSettings = {
                 "window.newWindowProfile" = "phoenix";
                 "workbench.editor.empty.hint" = "hidden";
