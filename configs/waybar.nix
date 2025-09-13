@@ -28,6 +28,7 @@
                         "(.*) com.mitchellh.ghostty" = "  $1";
                         "(.*) krita" = "  $1";
                         "(.*) steam" = "󰓓 $1";
+                        "(.*) org.gnome.Nautilus" = "  $1";
                     };
                 };
                 "privacy" = {
@@ -67,6 +68,7 @@
                         "(.*) com.mitchellh.ghostty" = "  $1";
                         "(.*) krita" = "  $1";
                         "(.*) steam" = "󰓓 $1";
+                        "(.*) org.gnome.Nautilus" = "  $1";
                     };
                 };
                 "cpu" = {
