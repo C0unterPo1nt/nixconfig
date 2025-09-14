@@ -23,8 +23,8 @@
                         "(.*) - Visual Studio Code code" = "  $1";
                         "(.*) - Discord discord" = "  $1";
                         "Discord Updater" = "  Updating...";
-                        "(.*) spotify" = "󰓇  $1";
                         "Spotify Premium spotify" = "󰓇  Spotify";
+                        "(.*) spotify" = "󰓇  $1";
                         "(.*) com.mitchellh.ghostty" = "  $1";
                         "(.*) krita" = "  $1";
                         "(.*) steam" = "󰓓 $1";
@@ -40,7 +40,7 @@
                         ];
                 };
                 "clock#date" = {
-                    format = "{:%A, %B%e}";
+                    format = "{:%A, %B %e}";
                 };
                 "clock#time" = {
                     format = "  {:%H:%M}";
@@ -63,8 +63,8 @@
                         "(.*) - Visual Studio Code code" = "  $1";
                         "(.*) - Discord discord" = "  $1";
                         "Discord Updater" = "  Updating...";
-                        "(.*) spotify" = "󰓇  $1";
                         "Spotify Premium spotify" = "󰓇  Spotify";
+                        "(.*) spotify" = "󰓇  $1";
                         "(.*) com.mitchellh.ghostty" = "  $1";
                         "(.*) krita" = "  $1";
                         "(.*) steam" = "󰓓 $1";
