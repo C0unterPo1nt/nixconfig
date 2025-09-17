@@ -100,6 +100,7 @@
                 "float, class:(qimgv) initialTitle:negative:(qimgv .*)"
                 "size 75%, 75%, class:(qimgv) floating:1"
                 "stayfocused, class:(qimgv) floating:1"
+                "stayfocused, class:(swappy) floating:1"
             ];
             layerrule = [
                 "blur, waybar"
