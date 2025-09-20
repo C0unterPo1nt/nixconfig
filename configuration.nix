@@ -100,6 +100,11 @@
     localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
   };
 
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = [ "phoenix" ];
+  virtualisation.virtualbox.host.enableKvm = true; # remove this line after this pr lands https://github.com/NixOS/nixpkgs/pull/444438
+  virtualisation.virtualbox.host.addNetworkInterface = false;
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
