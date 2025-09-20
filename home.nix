@@ -66,6 +66,7 @@
         slurp # screen selection
         swappy # screenshot editing
         wf-recorder # screen recording
+        htop # hardware monitor
 
         #drivers
         opentabletdriver # drawing tablet driver
