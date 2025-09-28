@@ -67,6 +67,7 @@
         swappy # screenshot editing
         wf-recorder # screen recording
         htop # hardware monitor
+        ffmpeg
 
         #drivers
         opentabletdriver # drawing tablet driver
