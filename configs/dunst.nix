@@ -5,7 +5,7 @@
         enable = true;
         settings = with config.lib.stylix.colors; {
             global = {
-                monitor = 1;
+                monitor = 0;
                 width = "(250,250)";
                 height = "(50,100)";
                 origin = "bottom-center";

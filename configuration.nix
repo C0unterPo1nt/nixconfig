@@ -4,6 +4,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./configs/sunshine.nix
     ];
 
   # Bootloader.
@@ -39,12 +40,12 @@
   };
 
   # desktop
-  services.displayManager.sddm ={
+  services.displayManager.ly ={
       enable = true;
-      wayland.enable = true;
-      theme = "chili";
   };
   programs.hyprland.enable = true;
+  # https://github.com/NixOS/nixpkgs/pull/297434#issuecomment-2348783988
+  systemd.services.display-manager.environment.XDG_CURRENT_DESKTOP = "X-NIXOS-SYSTEMD-AWARE";
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 

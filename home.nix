@@ -68,6 +68,7 @@
         wf-recorder # screen recording
         htop # hardware monitor
         ffmpeg
+        xorg.xrandr # monitor utils
 
         #drivers
         opentabletdriver # drawing tablet driver
