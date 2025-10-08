@@ -2,7 +2,7 @@
 
 {
   imports = [
-      ./configs/sunshine.nix
+      ../../configs/sunshine.nix
     ];
 
   # Bootloader.
