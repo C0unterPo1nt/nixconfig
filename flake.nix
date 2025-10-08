@@ -22,26 +22,45 @@
       zenpkg = zen-browser.packages.${system};
     in {
       nixosConfigurations = {
-        nixos = lib.nixosSystem {
+        desktop = lib.nixosSystem {
           system = "x86_64-linux";
           modules = [ 
             ./hosts/desktop/configuration.nix
-	    ./hosts/desktop/hardware-configuration.nix 
+            ./hosts/desktop/hardware-configuration.nix 
           ];
         };
-	laptop = lib.nixosSystem {
-	  system = "x86_64-linux";
-	  modules = [
-	    ./hosts/laptop/configuration.nix
-	    ./hosts/laptop/hardware-configuration.nix
-	  ];
-	};
+        laptop = lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            ./hosts/laptop/configuration.nix
+            ./hosts/laptop/hardware-configuration.nix
+          ];
+        };
       };
       homeConfigurations = {
-        phoenix = home-manager.lib.homeManagerConfiguration {
+        desktop = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = {
             zen-browser = zenpkg;
+            settings = {
+              name = "desktop";
+              monitor1 = "HDMI-A-4";
+              monitor2 = "HDMI-A-5";
+            };
+          };
+          modules = [ 
+            stylix.homeModules.stylix
+            ./home.nix
+          ];
+        };
+        laptop = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = {
+            zen-browser = zenpkg;
+            settings = {
+              name = "laptop";
+              monitor1 = "eDP-1";
+            };
           };
           modules = [ 
             stylix.homeModules.stylix

@@ -1,4 +1,4 @@
-{pkgs, ... }:
+{config, lib, pkgs, settings, ... }:
 
 {
     wayland.windowManager.hyprland = {
@@ -15,8 +15,8 @@
             "$thirdmod" = "SUPER_CTRL";
             "$fourthmod" = "CTRL";
             "$fifthmod" = "ALT";
-            "$monitor1" = "HDMI-A-4";
-            "$monitor2" = "HDMI-A-5";
+            "$monitor1" = settings.monitor1;
+            "$monitor2" = settings.monitor2;
             workspace = [
                 "1, monitor:$monitor2, default:true, persistent:true"
                 "2, monitor:$monitor2, default:true, persistent:true"

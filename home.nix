@@ -1,4 +1,4 @@
-{ config, pkgs, zen-browser, ... }:
+{ config, pkgs, zen-browser, settings, ... }:
 
 {
     home.username = "phoenix";
