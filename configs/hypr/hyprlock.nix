@@ -24,7 +24,7 @@
                 }
                 {
                     path = "/mnt/phoenixmedia/Library/photos/Background/jin_in_troia.png";
-                    monitor = monitor2;
+                    monitor = monitor2 or "";
                     blur_size = 2;
                     blur_passes = 3;
                 }
@@ -38,7 +38,7 @@
                     position = "0, 10%";
                 }
                 {
-                    monitor = monitor2;
+                    monitor = monitor2 or "";
                     text = builtins.readFile ./assets/miku_bored.txt;
                     font_size = 20;
                     font_family = "Mononoki Nerd Font";

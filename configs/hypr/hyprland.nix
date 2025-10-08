@@ -16,7 +16,7 @@
             "$fourthmod" = "CTRL";
             "$fifthmod" = "ALT";
             "$monitor1" = settings.monitor1;
-            "$monitor2" = settings.monitor2;
+            "$monitor2" = settings.monitor2 or "";
             workspace = [
                 "1, monitor:$monitor2, default:true, persistent:true"
                 "2, monitor:$monitor2, default:true, persistent:true"

@@ -12,7 +12,7 @@
 
             wallpaper = [
                 (settings.monitor1 + ",/mnt/phoenixmedia/Library/photos/Background/jin_yanxia_crt.png")
-                (settings.monitor2 +",/mnt/phoenixmedia/Library/photos/Background/jin_in_troia.png"    )
+                (settings.monitor2 or "" +",/mnt/phoenixmedia/Library/photos/Background/jin_in_troia.png"    )
             ];
         };
     };

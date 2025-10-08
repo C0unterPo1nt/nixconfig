@@ -50,7 +50,7 @@
                 modules-center = ["cava" "mpd"];
                 modules-left = ["hyprland/workspaces" "hyprland/window" ];
                 modules-right = [ "custom/gpu-usage" "memory" "cpu" "disk"];
-                output = [settings.monitor2];
+                output = [settings.monitor2 or ""];
                 height = 36;
                 margin = "5 5 0";
                 "hyprland/window" = {
