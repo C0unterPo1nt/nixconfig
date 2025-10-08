@@ -1,4 +1,4 @@
-{lib, pkgs, ...}:
+{lib, pkgs, settings, ...}:
 
 {
     programs.waybar = {
@@ -10,7 +10,7 @@
                 modules-right = ["privacy" "clock#date"];
                 modules-left = ["hyprland/window"];
                 modules-center = ["clock#time"];
-                output = ["HDMI-A-4"];
+                output = [settings.monitor1];
                 height = 36;
                 margin = "3 3 0";
                 "hyprland/window" = {
@@ -50,7 +50,7 @@
                 modules-center = ["cava" "mpd"];
                 modules-left = ["hyprland/workspaces" "hyprland/window" ];
                 modules-right = [ "custom/gpu-usage" "memory" "cpu" "disk"];
-                output = ["HDMI-A-5"];
+                output = [settings.monitor2];
                 height = 36;
                 margin = "5 5 0";
                 "hyprland/window" = {

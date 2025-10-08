@@ -1,4 +1,4 @@
-{pkgs, ... }:
+{pkgs, settings, ... }:
 
 {
     services.hyprpaper = {
@@ -11,8 +11,8 @@
             ];
 
             wallpaper = [
-                "HDMI-A-4,/mnt/phoenixmedia/Library/photos/Background/jin_yanxia_crt.png"
-                "HDMI-A-5,/mnt/phoenixmedia/Library/photos/Background/jin_in_troia.png"    
+                (settings.monitor1 + ",/mnt/phoenixmedia/Library/photos/Background/jin_yanxia_crt.png")
+                (settings.monitor2 +",/mnt/phoenixmedia/Library/photos/Background/jin_in_troia.png"    )
             ];
         };
     };
