@@ -5,7 +5,8 @@
         enable = true;
         settings = {
             main = {
-                auto-select = true;
+                exit-immediatelyif-empty = "true";
+                keyboard-focus = "on-demand";
                 hide-before-typing = true;
                 vertical-pad = 12;
                 horizontal-pad = 12;

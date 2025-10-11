@@ -71,12 +71,18 @@
             general = {
                 gaps_out = 5;
                 gaps_in = 5;
+                "col.inactive_border" = lib.mkForce ("rgba(" + config.lib.stylix.colors.base01 + "70)");
             };
             decoration = {
                 rounding = 10;
                 blur = {
                     size = 1;
                     passes = 3;
+                };
+                shadow = {
+                    render_power = 1;
+                    color = lib.mkForce ("rgba(" + config.lib.stylix.colors.base01 + "99)");
+                    color_inactive = lib.mkForce ("rgba(" + config.lib.stylix.colors.base01 + "70)");
                 };
             };
             bezier = [

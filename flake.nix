@@ -46,6 +46,8 @@
               name = "desktop";
               monitor1 = "HDMI-A-4";
               monitor2 = "HDMI-A-5";
+              wallpaper1 = "/mnt/phoenixmedia/Library/photos/Background/jin_in_troia.png";
+              wallpaper2 = "/mnt/phoenixmedia/Library/photos/Background/jin_yanxia_crt.png";
             };
           };
           modules = [ 
@@ -61,6 +63,7 @@
               name = "laptop";
               monitor1 = "eDP-1";
               monitor2 = "eDP-2";
+              wallpaper1 = "";
             };
           };
           modules = [ 

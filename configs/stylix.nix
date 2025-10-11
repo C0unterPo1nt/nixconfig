@@ -3,7 +3,7 @@
 {
     stylix = with pkgs; {
         enable = true;
-        base16Scheme ="${pkgs.base16-schemes}/share/themes/pasque.yaml";
+        base16Scheme ="${pkgs.base16-schemes}/share/themes/pasque.yaml"; # some others that look nice: tarot
         fonts = {
             serif = {
                 package = nerd-fonts.mononoki;

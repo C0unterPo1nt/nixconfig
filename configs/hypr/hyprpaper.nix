@@ -6,13 +6,13 @@
         package = pkgs.hyprpaper;
         settings ={
             preload = [
-                "/mnt/phoenixmedia/Library/photos/Background/jin_yanxia_crt.png"
-                "/mnt/phoenixmedia/Library/photos/Background/jin_in_troia.png"
+                settings.wallpaper1
+                settings.wallpaper2
             ];
 
             wallpaper = [
-                (settings.monitor1 + ",/mnt/phoenixmedia/Library/photos/Background/jin_yanxia_crt.png")
-                (settings.monitor2 or "" +",/mnt/phoenixmedia/Library/photos/Background/jin_in_troia.png"    )
+                (settings.monitor1 + "," + settings.wallpaper1)
+                (settings.monitor2 or "" + "," + settings.wallpaper2 or "")
             ];
         };
     };
