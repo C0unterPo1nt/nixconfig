@@ -14,7 +14,7 @@
                 "$git_branch"
                 "$git_status"
                 "[](fg:base03)"
-                "$time"
+                "$cmd_duration"
                 "\n$character"
             ];
             directory = {
@@ -36,9 +36,9 @@
                 style = "fg:base05 bg:base04";
                 symbol = "󱄅";
             };
-            time = {
+            cmd_duration = {
                 disabled = false;
-                format = "[ 󱦟 $time]($style)";
+                format = "[ 󱦟 $duration]($style)";
             };
         };
     };
