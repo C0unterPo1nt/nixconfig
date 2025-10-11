@@ -85,7 +85,7 @@
         fsType = "nfs";
       };
       "/mnt/hdd" = {
-        device = "/dev/sdb2";
+        device = "/dev/sda2";
       };
   };
   boot.supportedFilesystems = [ "nfs" ];
