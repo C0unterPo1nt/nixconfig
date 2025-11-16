@@ -44,6 +44,7 @@
   programs.hyprland.enable = true;
   # https://github.com/NixOS/nixpkgs/pull/297434#issuecomment-2348783988
   systemd.services.display-manager.environment.XDG_CURRENT_DESKTOP = "X-NIXOS-SYSTEMD-AWARE";
+  xdg.portal = { enable = true; extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-hyprland ]; }; 
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
@@ -186,5 +187,9 @@
 #      nvidiaBusId = "PCI:1:0:0";
 #    };
   };
+
+  boot.kernelParams = [
+    "nvidia.NVreg_RegistryDwords=RMIntrLockingMode=1"
+  ];
 
 }
