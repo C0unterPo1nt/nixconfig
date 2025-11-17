@@ -12,6 +12,10 @@
                     timeout = 900; # 15 minutes
                     on-timeout = "loginctl lock-session";
                 }
+                {
+                  timeout = 7200; # 2 hours
+                  on-timeout = "poweroff";
+                }
             ];
         };
     };
