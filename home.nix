@@ -1,4 +1,4 @@
-{ config, pkgs, zen-browser, settings, ... }:
+{ config, pkgs, zen-browser, settings, jpfonts, ... }:
 
 {
     home.username = "phoenix";
@@ -8,6 +8,14 @@
     };
     
     nixpkgs.config.allowUnfree = true;
+
+    fonts.fontconfig.enable = true;
+    fonts.fontconfig.defaultFonts = {
+      serif = ["Mononoki Nerd Font" "rii-tegaki-fude"]; 
+      sansSerif = ["Mononoki Nerd Font" "rii-tegaki-fude"]; 
+      monospace = ["Mononoki Nerd Font" "rii-tegaki-fude"];
+#      emoji
+    };
 
     imports = [
         ./configs/hypr/hyprland.nix
@@ -72,7 +80,10 @@
 
         #drivers
         opentabletdriver # drawing tablet driver
-    ];
+      ] ++ (with jpfonts; [
+        anzu-moji
+        rii-tegaki-fude
+      ]);
 
     gtk.enable = true;
 

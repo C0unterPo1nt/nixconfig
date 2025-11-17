@@ -12,14 +12,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     zen-browser.url = "github:youwen5/zen-browser-flake";
+    nixos-fonts.url = "github:Takamatsu-Naoki/nixos-fonts";
   };
 
-  outputs = { self, nixpkgs, home-manager, stylix, zen-browser, ... }:
+  outputs = { self, nixpkgs, home-manager, stylix, zen-browser, nixos-fonts, ... }:
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;
       pkgs = nixpkgs.legacyPackages.${system};
       zenpkg = zen-browser.packages.${system};
+      jpfonts = nixos-fonts.packages.${system};
     in {
       nixosConfigurations = {
         desktop = lib.nixosSystem {
@@ -42,6 +44,7 @@
           inherit pkgs;
           extraSpecialArgs = {
             zen-browser = zenpkg;
+            jpfonts = jpfonts;
             settings = {
               name = "desktop";
               monitor1 = "HDMI-A-4";

@@ -1,4 +1,4 @@
-{pkgs, stylix, ...}:
+{pkgs, stylix, jpfonts, ...}:
 
 {
     stylix = with pkgs; {
@@ -8,8 +8,7 @@
             serif = {
                 package = nerd-fonts.mononoki;
                 name = "Mononoki Nerd Font";
-            };
-            
+            }; 
             sansSerif = {
                 package = nerd-fonts.mononoki;
                 name = "Mononoki Nerd Font";
