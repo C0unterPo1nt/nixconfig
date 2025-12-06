@@ -10,7 +10,7 @@
     nixpkgs.config.allowUnfree = true;
 
     fonts.fontconfig.enable = true;
-    fonts.fontconfig.defaultFonts = {
+    fonts.fontconfig.defaultFonts = { 
       serif = ["Mononoki Nerd Font" "rii-tegaki-fude"]; 
       sansSerif = ["Mononoki Nerd Font" "rii-tegaki-fude"]; 
       monospace = ["Mononoki Nerd Font" "rii-tegaki-fude"];
