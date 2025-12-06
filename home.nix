@@ -4,7 +4,9 @@
     home.username = "phoenix";
     home.homeDirectory = "/home/phoenix";
     home.sessionVariables = {
-        TERMINAL = "ghostty";
+      TERMINAL = "ghostty";
+      OPENER = "handlr";
+      EDITOR = "vim";
     };
     
     nixpkgs.config.allowUnfree = true;
@@ -25,12 +27,14 @@
         ./configs/terminal/ghostty.nix
         ./configs/terminal/starship.nix
         ./configs/terminal/zsh.nix
+        ./configs/terminal/lf.nix
         ./configs/waybar.nix
         ./configs/stylix.nix
         ./configs/dunst.nix
         ./configs/fuzzel.nix
         ./configs/vscode.nix
-    ];
+        ./configs/xdg.nix 
+      ];
 
     home.packages = with pkgs; [
         krita
@@ -77,6 +81,8 @@
         htop # hardware monitor
         ffmpeg
         xorg.xrandr # monitor utils
+        ranger # mostly here for the rifle file opener
+        handlr-regex # another opener
 
         #drivers
         opentabletdriver # drawing tablet driver
