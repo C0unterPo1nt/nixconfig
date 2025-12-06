@@ -33,24 +33,27 @@
                 "$mainmod, Q, killactive" # close window
                 "$secondmod, Q, exec, hyprlock" # lock screen
                 "$mainmod, S, exec, grim -g \"$(slurp)\" - | swappy -f -" # screenshot
+                "$mainmod, G, exec, [monitor 1] discord" # GAMERMODE
+                "$mainmod, G, exec, [monitor 0] steam" # GAMERMODE
+
 
                 # focus nav
-                "$mainmod, Left, movefocus, l"
-                "$mainmod, Right, movefocus, r"
-                "$mainmod, Up, movefocus, u"
-                "$mainmod, Down, movefocus, d"
+                "$mainmod, H, movefocus, l"
+                "$mainmod, L, movefocus, r"
+                "$mainmod, K, movefocus, u"
+                "$mainmod, J, movefocus, d"
 
                 # move window
-                "$secondmod, Left, movewindow, l"
-                "$secondmod, Right, movewindow, r"
-                "$secondmod, Up, movewindow, u"
-                "$secondmod, Down, movewindow, d"
+                "$secondmod, H, movewindow, l"
+                "$secondmod, L, movewindow, r"
+                "$secondmod, K, movewindow, u"
+                "$secondmod, J, movewindow, d"
 
                 # workspaces
-                "$thirdmod, Left, focusmonitor, $monitor2"
-                "$thirdmod, Left, workspace, m-1"
-                "$thirdmod, Right, focusmonitor, $monitor2"
-                "$thirdmod, Right, workspace, m+1"
+                "$thirdmod, H, focusmonitor, $monitor2"
+                "$thirdmod, H, workspace, m-1"
+                "$thirdmod, L, focusmonitor, $monitor2"
+                "$thirdmod, L, workspace, m+1"
                 "$mainmod, Tab, focusmonitor, $monitor2"
                 "$mainmod, Tab, workspace, m+1"
 
@@ -66,7 +69,7 @@
             ];
             bindm = [
                 "$mainmod, mouse:272, movewindow"
-                "$fourthmod, mouse:272, resizewindow"
+                "$secondmod, mouse:272, resizewindow"
             ];
             general = {
                 gaps_out = 5;
