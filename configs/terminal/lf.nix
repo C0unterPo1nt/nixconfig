@@ -11,7 +11,6 @@
     };
     extraConfig = ''
       set ifs "\n"
-      cmd on-quit lfcd
     '';
   };
 }

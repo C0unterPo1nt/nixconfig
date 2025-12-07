@@ -16,7 +16,7 @@
       serif = ["Mononoki Nerd Font" "irohamaru"]; 
       sansSerif = ["Mononoki Nerd Font" "irohamaru"]; 
       monospace = ["Mononoki Nerd Font" "irohamaru"];
-#      emoji
+      # emoji
     };
 
     imports = [
@@ -39,7 +39,6 @@
     home.packages = with pkgs; [
         krita
         parsec-bin
-        spotify 
         anki-bin
         obs-studio
         qbittorrent
@@ -76,12 +75,11 @@
         wl-clipboard # Command-line copy/paste utilities for Wayland
         grim # screenshots
         slurp # screen selection
-        swappy # screenshot editing
+        swappy # screenshot editing TODO: move to programs.swappy
         wf-recorder # screen recording
         htop # hardware monitor
         ffmpeg
         xorg.xrandr # monitor utils
-        ranger # mostly here for the rifle file opener
         handlr-regex # another opener
 
         #drivers
