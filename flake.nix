@@ -12,7 +12,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     zen-browser.url = "github:youwen5/zen-browser-flake";
-    nixos-fonts.url = "github:Takamatsu-Naoki/nixos-fonts";
+    nixos-fonts.url = "github:C0unterPo1nt/nixos-fonts";
   };
 
   outputs = { self, nixpkgs, home-manager, stylix, zen-browser, nixos-fonts, ... }:

@@ -13,9 +13,9 @@
 
     fonts.fontconfig.enable = true;
     fonts.fontconfig.defaultFonts = { 
-      serif = ["Mononoki Nerd Font" "rii-tegaki-fude"]; 
-      sansSerif = ["Mononoki Nerd Font" "rii-tegaki-fude"]; 
-      monospace = ["Mononoki Nerd Font" "rii-tegaki-fude"];
+      serif = ["Mononoki Nerd Font" "irohamaru"]; 
+      sansSerif = ["Mononoki Nerd Font" "irohamaru"]; 
+      monospace = ["Mononoki Nerd Font" "irohamaru"];
 #      emoji
     };
 
@@ -87,8 +87,7 @@
         #drivers
         opentabletdriver # drawing tablet driver
       ] ++ (with jpfonts; [
-        anzu-moji
-        rii-tegaki-fude
+        irohamaru
       ]);
 
     gtk.enable = true;
