@@ -48,11 +48,17 @@
         discord
         zoom-us
         nautilus
-        cava # Audio Visualizer
-        astroterm # Command Line Celestial Viewer
         caligula # disk image writer
         qimgv # photo viewer
         zen-browser.default
+
+        # pretty stuff
+        pipes # Screensaver
+        cmatrix # Screensaver
+        cava # Audio Visualizer
+        astroterm # Command Line Celestial Viewer
+        fastfetch
+        nitch # screen fetch util, deprecated
 
         #libre and spellchecker
         libreoffice-qt
@@ -61,9 +67,7 @@
 
         # utils
         ripgrep # grep but fast
-        fastfetch
         screenfetch
-        nitch # screen fetch util, deprecated
         which # check if a program is installed
         killall # kill command 
         wev # Wayland Event Viewer
@@ -84,6 +88,7 @@
 
         #drivers
         opentabletdriver # drawing tablet driver
+
       ] ++ (with jpfonts; [
         irohamaru
       ]);
