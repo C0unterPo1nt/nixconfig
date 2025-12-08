@@ -101,7 +101,9 @@
         vim.enable = true;
     };
 
-    services.hyprpolkitagent.enable = true;
+    services = {
+      hyprpolkitagent.enable = true;
+    };
 
     home.stateVersion = "25.05";
 }

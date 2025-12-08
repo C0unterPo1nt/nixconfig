@@ -5,7 +5,6 @@
         enable = true;
         settings = {
             main = {
-                exit-immediatelyif-empty = "true";
                 keyboard-focus = "on-demand";
                 hide-before-typing = true;
                 vertical-pad = 12;
@@ -22,7 +21,8 @@
                 selection = lib.mkForce (base02 + "ff");
             };
             border = {
-                width = 2;
+              width = 1;
+              selection-radius = 5;
             };
         };
     };

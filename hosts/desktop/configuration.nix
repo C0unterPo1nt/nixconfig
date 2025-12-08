@@ -113,7 +113,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     home-manager
-    sddm-chili-theme
+    sddm-chili-theme # TODO REMOVE
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

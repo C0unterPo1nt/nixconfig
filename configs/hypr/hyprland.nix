@@ -114,7 +114,7 @@
                 "float, class:(steam)"
                 "tile, title:(Steam)"
                 "float, class:(qimgv) initialTitle:negative:(qimgv .*)"
-                "size 75%, 75%, class:(qimgv) floating:1"
+                "size monitor_w*75, monitor_h*75, class:(qimgv) floating:1"
                 "stayfocused, class:(qimgv) floating:1"
                 "stayfocused, class:(swappy) floating:1"
             ];
