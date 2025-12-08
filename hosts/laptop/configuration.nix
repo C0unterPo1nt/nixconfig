@@ -147,7 +147,7 @@
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = ["nvidia"];
 
-  hardware.graphics.extraPackages = with pkgs; [ vaapiIntel intel-media-driver ];
+  hardware.graphics.extraPackages = with pkgs; [ intel-vaapi-driver intel-media-driver ];
 
   hardware.nvidia = {
 

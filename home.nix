@@ -33,7 +33,8 @@
         ./configs/dunst.nix
         ./configs/fuzzel.nix
         ./configs/vscode.nix
-        ./configs/xdg.nix 
+        ./configs/xdg.nix
+        ./configs/swappy.nix 
       ];
 
     home.packages = with pkgs; [
@@ -79,7 +80,6 @@
         wl-clipboard # Command-line copy/paste utilities for Wayland
         grim # screenshots
         slurp # screen selection
-        swappy # screenshot editing TODO: move to programs.swappy
         wf-recorder # screen recording
         htop # hardware monitor
         ffmpeg
