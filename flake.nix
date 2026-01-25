@@ -49,8 +49,8 @@
               name = "desktop";
               monitor1 = "HDMI-A-4";
               monitor2 = "HDMI-A-5";
-              wallpaper1 = "/mnt/phoenixmedia/Library/photos/Background/jin_in_troia.png";
-              wallpaper2 = "/mnt/phoenixmedia/Library/photos/Background/jin_yanxia_crt.png";
+              wallpaper1 = "~/Pictures/Background/active/jin_in_troia.png";
+              wallpaper2 = "~/Pictures/Background/active/jin_yanxia_crt.png";
             };
           };
           modules = [ 

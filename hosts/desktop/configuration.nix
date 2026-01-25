@@ -82,11 +82,12 @@
   # phoenixmedia nas mount
   fileSystems = {
       "/mnt/phoenixmedia" = {
-        device = "10.0.0.28:/phoenixmedia";
+        device = "10.0.0.21:/";
         fsType = "nfs";
+        options = [ "x-systemd.automount" "nfsvers=4.2" "noauto" ];
       };
       "/mnt/hdd" = {
-        device = "/dev/sda2";
+        device = "/dev/disk/by-uuid/60CC8750CC871F80";
       };
   };
   boot.supportedFilesystems = [ "nfs" ];
