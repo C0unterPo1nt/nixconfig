@@ -6,7 +6,8 @@
     home.sessionVariables = {
       TERMINAL = "ghostty";
       OPENER = "handlr";
-      EDITOR = "vim";
+      EDITOR = "nvim";
+      VISUAL = "nvim";
     };
     
     nixpkgs.config.allowUnfree = true;
@@ -28,13 +29,14 @@
         ./configs/terminal/starship.nix
         ./configs/terminal/zsh.nix
         ./configs/terminal/lf.nix
+        ./configs/terminal/nvim.nix
         ./configs/waybar.nix
         ./configs/stylix.nix
         ./configs/dunst.nix
         ./configs/fuzzel.nix
         ./configs/vscode.nix
         ./configs/xdg.nix
-        ./configs/swappy.nix 
+        ./configs/swappy.nix
       ];
 
     home.packages = with pkgs; [
@@ -101,7 +103,6 @@
     programs = {
         home-manager.enable = true;
         git.enable = true;
-        vim.enable = true;
     };
 
     services = {
