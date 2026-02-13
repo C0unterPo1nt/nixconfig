@@ -13,7 +13,7 @@
                 image-size-ratio = 0.3;
                 anchor = "bottom";
                 y-margin = 20;
-                width = 50;
+                width = 20;
             };
             colors = with config.lib.stylix.colors; {
                 background = lib.mkForce (base01 + "99"); # Plus opacity

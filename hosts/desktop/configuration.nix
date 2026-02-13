@@ -74,7 +74,7 @@
   users.users.phoenix = {
     isNormalUser = true;
     description = "Lucina Farrell";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "dialout"];
     shell = pkgs.zsh;
   };
   programs.zsh.enable = true;
@@ -114,7 +114,6 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     home-manager
-    sddm-chili-theme # TODO REMOVE
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

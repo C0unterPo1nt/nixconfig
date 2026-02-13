@@ -52,6 +52,7 @@
         caligula # disk image writer
         qimgv # photo viewer
         zen-browser.default
+        arduino-ide
 
         # pretty stuff
         pipes # Screensaver
@@ -81,10 +82,12 @@
         grim # screenshots
         slurp # screen selection
         wf-recorder # screen recording
-        htop # hardware monitor
+        btop # hardware monitor
         ffmpeg
         xorg.xrandr # monitor utils
         handlr-regex # another opener
+        mpc
+        avrdude
 
         #drivers
         opentabletdriver # drawing tablet driver
