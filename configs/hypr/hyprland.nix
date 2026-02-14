@@ -108,8 +108,10 @@
                 workspace_wraparound = true;
             };
             windowrule = [
-                "animation gnomed, floating:1"
+              "animation gnomed, floating:1"
+              # floats
                 "float, title:(Open File[s]*)"
+                "float, title:(Select what to share)"
                 "float, title:(Open Folder*)"
                 "float, class:(steam)"
                 "tile, title:(Steam)"
