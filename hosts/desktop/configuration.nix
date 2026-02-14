@@ -74,7 +74,7 @@
   users.users.phoenix = {
     isNormalUser = true;
     description = "Lucina Farrell";
-    extraGroups = [ "networkmanager" "wheel" "dialout"];
+    extraGroups = [ "networkmanager" "wheel" "dialout" "video"];
     shell = pkgs.zsh;
   };
   programs.zsh.enable = true;
@@ -194,6 +194,7 @@
 
   boot.kernelParams = [
     "nvidia.NVreg_RegistryDwords=RMIntrLockingMode=1"
+    "acpi_backlight=video"
   ];
 
 }
