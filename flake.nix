@@ -62,11 +62,13 @@
           inherit pkgs;
           extraSpecialArgs = {
             zen-browser = zenpkg;
+            jpfonts = jpfonts;
             settings = {
               name = "laptop";
               monitor1 = "eDP-1";
               monitor2 = "eDP-2";
               wallpaper1 = "";
+              wallpaper2 = "";
             };
           };
           modules = [ 
