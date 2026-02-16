@@ -14,6 +14,9 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  networking.networkmanager.dns = "none";
+  networking.nameservers = [ "10.0.0.21" ];
+  networking.dhcpcd.extraConfig = "nohook resolv.conf";
 
   # Flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
