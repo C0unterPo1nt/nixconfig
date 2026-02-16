@@ -17,13 +17,13 @@
             ];
             background = lib.mkForce [
                 {
-                    path = "/mnt/phoenixmedia/Library/photos/Background/jin_yanxia_crt.png";
+                    path = "~/Pictures/Background/active/jin_in_troia.png";
                     monitor = settings.monitor1;
                     blur_size = 2;
                     blur_passes = 3;
                 }
                 {
-                    path = "/mnt/phoenixmedia/Library/photos/Background/jin_in_troia.png";
+                    path = "~/Pictures/Background/active/jin_yanxia_crt.png";
                     monitor = settings.monitor2;
                     blur_size = 2;
                     blur_passes = 3;

@@ -14,6 +14,9 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  networking.networkmanager.dns = "none";
+  networking.nameservers = [ "10.0.0.21" ];
+  networking.dhcpcd.extraConfig = "nohook resolv.conf";
 
   # Flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -74,7 +77,7 @@
   users.users.phoenix = {
     isNormalUser = true;
     description = "Lucina Farrell";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "dialout" "video"];
     shell = pkgs.zsh;
   };
   programs.zsh.enable = true;
@@ -82,11 +85,12 @@
   # phoenixmedia nas mount
   fileSystems = {
       "/mnt/phoenixmedia" = {
-        device = "10.0.0.28:/phoenixmedia";
+        device = "10.0.0.21:/";
         fsType = "nfs";
+        options = [ "x-systemd.automount" "nfsvers=4.2" "noauto" ];
       };
       "/mnt/hdd" = {
-        device = "/dev/sda2";
+        device = "/dev/disk/by-uuid/60CC8750CC871F80";
       };
   };
   boot.supportedFilesystems = [ "nfs" ];
@@ -113,7 +117,6 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     home-manager
-    sddm-chili-theme # TODO REMOVE
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -194,6 +197,7 @@
 
   boot.kernelParams = [
     "nvidia.NVreg_RegistryDwords=RMIntrLockingMode=1"
+    "acpi_backlight=video"
   ];
 
 }
