@@ -103,6 +103,7 @@
     programs = {
         home-manager.enable = true;
         git.enable = true;
+        element-desktop.enable = true;
     };
 
     services = {
