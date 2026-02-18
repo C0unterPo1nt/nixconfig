@@ -72,7 +72,7 @@
   # phoenixmedia nas mount
   fileSystems = {
       "/mnt/phoenixmedia" = {
-        device = "10.0.0.21:/phoenixmedia";
+        device = "10.0.0.21:/";
         fsType = "nfs";
         options = [ "x-systemd.automount" "nfsvers=4.2" "noauto" ];
       };

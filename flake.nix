@@ -49,6 +49,7 @@
               name = "desktop";
               monitor1 = "HDMI-A-4";
               monitor2 = "HDMI-A-5";
+              /* TODO: REMOVE These are impure paths */
               wallpaper1 = "~/Pictures/Background/active/jin_in_troia.png";
               wallpaper2 = "~/Pictures/Background/active/jin_yanxia_crt.png";
             };
@@ -67,7 +68,8 @@
               name = "laptop";
               monitor1 = "eDP-1";
               monitor2 = "eDP-2";
-              wallpaper1 = "";
+              /* TODO: REMOVE These are impure paths */
+              wallpaper1 = "~/Pictures/Background/jin_viper_BETTER.png";
               wallpaper2 = "";
             };
           };
