@@ -8,13 +8,20 @@
         inputs.nixpkgs.follows = "nixpkgs";
     };
     stylix = {
-      url = "github:nix-community/stylix/release-25.11";
-      inputs.nixpkgs.follows = "nixpkgs";
+        url = "github:nix-community/stylix/release-25.11";
+        inputs.nixpkgs.follows = "nixpkgs";
     };
-    zen-browser.url = "github:youwen5/zen-browser-flake";
-    nixos-fonts.url = "github:C0unterPo1nt/nixos-fonts";
+    zen-browser = {
+        url = "github:youwen5/zen-browser-flake";
+        inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nixos-fonts = {
+        url = "github:C0unterPo1nt/nixos-fonts";
+        inputs.nixpkgs.follows = "nixpkgs";
+    };
     nvf = {
-      url = "github:notashelf/nvf";
+        url = "github:notashelf/nvf";
+        inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
