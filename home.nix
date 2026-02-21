@@ -1,4 +1,4 @@
-{ config, pkgs, zen-browser, settings, jpfonts, ... }:
+{ config, pkgs, zen-browser, settings, jpfonts, nvf, ... }:
 
 {
     home.username = "phoenix";
@@ -8,7 +8,7 @@
       OPENER = "handlr";
       EDITOR = "nvim";
       VISUAL = "nvim";
-    };
+    }; 
     
     nixpkgs.config.allowUnfree = true;
 

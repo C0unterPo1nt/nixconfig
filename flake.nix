@@ -13,9 +13,12 @@
     };
     zen-browser.url = "github:youwen5/zen-browser-flake";
     nixos-fonts.url = "github:C0unterPo1nt/nixos-fonts";
+    nvf = {
+      url = "github:notashelf/nvf";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, stylix, zen-browser, nixos-fonts, ... }:
+  outputs = { self, nixpkgs, home-manager, stylix, zen-browser, nixos-fonts, nvf, ... }:
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;
@@ -28,14 +31,14 @@
           system = "x86_64-linux";
           modules = [ 
             ./hosts/desktop/configuration.nix
-            ./hosts/desktop/hardware-configuration.nix 
+            ./hosts/desktop/hardware-configuration.nix
           ];
         };
         laptop = lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
             ./hosts/laptop/configuration.nix
-            ./hosts/laptop/hardware-configuration.nix
+            ./hosts/laptop/hardware-configuration.nix 
           ];
         };
       };
@@ -56,6 +59,7 @@
           };
           modules = [ 
             stylix.homeModules.stylix
+            nvf.homeManagerModules.default
             ./home.nix
           ];
         };
@@ -75,6 +79,7 @@
           };
           modules = [ 
             stylix.homeModules.stylix
+            nvf.homeManagerModules.default
             ./home.nix
           ];
         };
