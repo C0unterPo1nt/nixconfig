@@ -18,13 +18,13 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, stylix, zen-browser, nixos-fonts, nvf, ... }:
+  outputs = { nixpkgs, ... } @ inputs:
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;
       pkgs = nixpkgs.legacyPackages.${system};
-      zenpkg = zen-browser.packages.${system};
-      jpfonts = nixos-fonts.packages.${system};
+      zenpkg = inputs.zen-browser.packages.${system};
+      jpfonts = inputs.nixos-fonts.packages.${system};
     in {
       nixosConfigurations = {
         desktop = lib.nixosSystem {
@@ -43,7 +43,7 @@
         };
       };
       homeConfigurations = {
-        desktop = home-manager.lib.homeManagerConfiguration {
+        desktop = inputs.home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = {
             zen-browser = zenpkg;
@@ -58,12 +58,12 @@
             };
           };
           modules = [ 
-            stylix.homeModules.stylix
-            nvf.homeManagerModules.default
+            inputs.stylix.homeModules.stylix
+            inputs.nvf.homeManagerModules.default
             ./home.nix
           ];
         };
-        laptop = home-manager.lib.homeManagerConfiguration {
+        laptop = inputs.home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = {
             zen-browser = zenpkg;
@@ -78,8 +78,8 @@
             };
           };
           modules = [ 
-            stylix.homeModules.stylix
-            nvf.homeManagerModules.default
+            inputs.stylix.homeModules.stylix
+            inputs.nvf.homeManagerModules.default
             ./home.nix
           ];
         };
