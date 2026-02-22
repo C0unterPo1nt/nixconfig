@@ -1,9 +1,4 @@
-{
-  pkgs,
-  stylix,
-  jpfonts,
-  ...
-}: {
+{pkgs, ...}: {
   stylix = with pkgs; {
     enable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/pasque.yaml"; # some others that look nice: tarot
