@@ -1,9 +1,11 @@
-{ config, lib, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
-      ../../configs/sunshine.nix
-    ];
+    ../../modules/nixosModules/modules.nix
+  ];
 
   boot.loader = {
     systemd-boot.enable = true;
@@ -17,13 +19,13 @@
       dns = "none";
     };
     hostName = "nixos";
-    nameservers = [ "10.0.0.21" ];
+    nameservers = ["10.0.0.21"];
     dhcpcd.extraConfig = "nohook resolv.conf";
     #firewall.allowedTCPPorts = [ ... ];
-    firewall.allowedUDPPorts = [ 5353 31382 ];
+    firewall.allowedUDPPorts = [5353 31382];
   };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   time.timeZone = "America/Los_Angeles";
 
@@ -44,13 +46,16 @@
   };
 
   # desktop
-  services.displayManager.ly ={
-      enable = true;
+  services.displayManager.ly = {
+    enable = true;
   };
   programs.hyprland.enable = true;
   # https://github.com/NixOS/nixpkgs/pull/297434#issuecomment-2348783988
   systemd.services.display-manager.environment.XDG_CURRENT_DESKTOP = "X-NIXOS-SYSTEMD-AWARE";
-  xdg.portal = { enable = true; extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-hyprland ]; }; 
+  xdg.portal = {
+    enable = true;
+    extraPortals = [pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-hyprland];
+  };
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
@@ -72,22 +77,22 @@
   users.users.phoenix = {
     isNormalUser = true;
     description = "Lucina Farrell";
-    extraGroups = [ "networkmanager" "wheel" "dialout" "video"];
+    extraGroups = ["networkmanager" "wheel" "dialout" "video"];
     shell = pkgs.zsh;
   };
   programs.zsh.enable = true;
 
   fileSystems = {
-      "/mnt/phoenixmedia" = {
-        device = "10.0.0.21:/";
-        fsType = "nfs";
-        options = [ "x-systemd.automount" "nfsvers=4.2" "noauto" ];
-      };
-      "/mnt/hdd" = {
-        device = "/dev/disk/by-uuid/60CC8750CC871F80";
-      };
+    "/mnt/phoenixmedia" = {
+      device = "10.0.0.21:/";
+      fsType = "nfs";
+      options = ["x-systemd.automount" "nfsvers=4.2" "noauto"];
+    };
+    "/mnt/hdd" = {
+      device = "/dev/disk/by-uuid/60CC8750CC871F80";
+    };
   };
-  boot.supportedFilesystems = [ "nfs" ];
+  boot.supportedFilesystems = ["nfs"];
 
   nixpkgs.config.allowUnfree = true;
 
@@ -122,16 +127,15 @@
 
   services.xserver.videoDrivers = ["nvidia"];
 
-  hardware.graphics.extraPackages = with pkgs; [  intel-vaapi-driver intel-media-driver ];
+  hardware.graphics.extraPackages = with pkgs; [intel-vaapi-driver intel-media-driver];
 
   hardware.nvidia = {
-
     # Modesetting is required.
     modesetting.enable = true;
 
     # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
     # Enable this if you have graphical corruption issues or application crashes after waking
-    # up from sleep. This fixes it by saving the entire VRAM memory to /tmp/ instead 
+    # up from sleep. This fixes it by saving the entire VRAM memory to /tmp/ instead
     # of just the bare essentials.
     powerManagement.enable = false;
 
@@ -141,28 +145,27 @@
 
     # Use the NVidia open source kernel module (not to be confused with the
     # independent third-party "nouveau" open source driver).
-    # Support is limited to the Turing and later architectures. Full list of 
-    # supported GPUs is at: 
-    # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus 
+    # Support is limited to the Turing and later architectures. Full list of
+    # supported GPUs is at:
+    # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus
     # Only available from driver 515.43.04+
     open = true;
 
     # Enable the Nvidia settings menu,
-	# accessible via `nvidia-settings`.
+    # accessible via `nvidia-settings`.
     nvidiaSettings = true;
 
     package = config.boot.kernelPackages.nvidiaPackages.stable;
 
-#    prime = {
-#      sync.enable = true;
-#      intelBusId = "PCI:0:2:0";
-#      nvidiaBusId = "PCI:1:0:0";
-#    };
+    #    prime = {
+    #      sync.enable = true;
+    #      intelBusId = "PCI:0:2:0";
+    #      nvidiaBusId = "PCI:1:0:0";
+    #    };
   };
 
   boot.kernelParams = [
     "nvidia.NVreg_RegistryDwords=RMIntrLockingMode=1"
     "acpi_backlight=video"
   ];
-
 }

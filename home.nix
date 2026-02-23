@@ -24,22 +24,7 @@
   };
 
   imports = [
-    ./configs/hypr/hyprland.nix
-    ./configs/hypr/hyprpaper.nix
-    ./configs/hypr/hyprlock.nix
-    ./configs/hypr/hypridle.nix
-    ./configs/terminal/ghostty.nix
-    ./configs/terminal/starship.nix
-    ./configs/terminal/zsh.nix
-    ./configs/terminal/lf.nix
-    ./configs/terminal/nvim.nix
-    ./configs/waybar.nix
-    ./configs/stylix.nix
-    ./configs/dunst.nix
-    ./configs/fuzzel.nix
-    ./configs/vscode.nix
-    ./configs/xdg.nix
-    ./configs/swappy.nix
+    ./modules/homeManagerModules/modules.nix
   ];
 
   home.packages = with pkgs;
