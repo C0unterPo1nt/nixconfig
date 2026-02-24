@@ -1,22 +1,23 @@
-{ config, lib, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
-      ../../configs/sunshine.nix
-    ];
+    ../../modules/nixosModules/modules.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "laptop";
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Enable networking
   networking.networkmanager.enable = true;
 
   # Flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   time.timeZone = "America/Los_Angeles";
 
@@ -38,8 +39,8 @@
   };
 
   # desktop
-  services.displayManager.ly ={
-      enable = true;
+  services.displayManager.ly = {
+    enable = true;
   };
   programs.hyprland.enable = true;
   # https://github.com/NixOS/nixpkgs/pull/297434#issuecomment-2348783988
@@ -64,20 +65,20 @@
   users.users.phoenix = {
     isNormalUser = true;
     description = "Lucina Farrell";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
     shell = pkgs.zsh;
   };
   programs.zsh.enable = true;
 
   # phoenixmedia nas mount
   fileSystems = {
-      "/mnt/phoenixmedia" = {
-        device = "10.0.0.21:/";
-        fsType = "nfs";
-        options = [ "x-systemd.automount" "nfsvers=4.2" "noauto" ];
-      };
+    "/mnt/phoenixmedia" = {
+      device = "10.0.0.21:/";
+      fsType = "nfs";
+      options = ["x-systemd.automount" "nfsvers=4.2" "noauto"];
+    };
   };
-  boot.supportedFilesystems = [ "nfs" ];
+  boot.supportedFilesystems = ["nfs"];
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -96,7 +97,7 @@
   # services.openssh.enable = true;
 
   # networking.firewall.allowedTCPPorts = [ ... ];
-  networking.firewall.allowedUDPPorts = [ 5353 31382 ];
+  networking.firewall.allowedUDPPorts = [5353 31382];
 
   # DO NOT DELETE
   system.stateVersion = "25.05"; # Did you read the comment?
@@ -113,16 +114,15 @@
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = ["nvidia"];
 
-  hardware.graphics.extraPackages = with pkgs; [ intel-vaapi-driver intel-media-driver ];
+  hardware.graphics.extraPackages = with pkgs; [intel-vaapi-driver intel-media-driver];
 
   hardware.nvidia = {
-
     # Modesetting is required.
     modesetting.enable = true;
 
     # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
     # Enable this if you have graphical corruption issues or application crashes after waking
-    # up from sleep. This fixes it by saving the entire VRAM memory to /tmp/ instead 
+    # up from sleep. This fixes it by saving the entire VRAM memory to /tmp/ instead
     # of just the bare essentials.
     powerManagement.enable = false;
 
@@ -132,24 +132,23 @@
 
     # Use the NVidia open source kernel module (not to be confused with the
     # independent third-party "nouveau" open source driver).
-    # Support is limited to the Turing and later architectures. Full list of 
-    # supported GPUs is at: 
-    # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus 
+    # Support is limited to the Turing and later architectures. Full list of
+    # supported GPUs is at:
+    # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus
     # Only available from driver 515.43.04+
     open = true;
 
     # Enable the Nvidia settings menu,
-	# accessible via `nvidia-settings`.
+    # accessible via `nvidia-settings`.
     nvidiaSettings = true;
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
     package = config.boot.kernelPackages.nvidiaPackages.stable;
 
-#    prime = {
-#      sync.enable = true;
-#      intelBusId = "PCI:0:2:0";
-#      nvidiaBusId = "PCI:1:0:0";
-#    };
+    #    prime = {
+    #      sync.enable = true;
+    #      intelBusId = "PCI:0:2:0";
+    #      nvidiaBusId = "PCI:1:0:0";
+    #    };
   };
-
 }
