@@ -79,6 +79,7 @@
       handlr-regex # another opener
       mpc
       avrdude
+      brightnessctl
 
       #drivers
       opentabletdriver # drawing tablet driver
