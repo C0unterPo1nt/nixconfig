@@ -33,6 +33,7 @@
         binds.whichKey.enable = true;
         vimAlias = true;
         clipboard.enable = true;
+        tabline.nvimBufferline.enable = true;
         lsp = {
           enable = true;
           formatOnSave = true;
