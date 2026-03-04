@@ -48,6 +48,7 @@
           nix.enable = true;
           nix.treesitter.enable = true;
           markdown.enable = true;
+          rust.enable = true;
         };
         telescope = {
           enable = true;

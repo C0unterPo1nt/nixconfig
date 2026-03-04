@@ -44,6 +44,7 @@
       qimgv # photo viewer
       zen-browser.default
       arduino-ide
+      jellyfin-tui
 
       # pretty stuff
       pipes # Screensaver
