@@ -1,3 +1,6 @@
 {...}: {
-  imports = [./sunshine.nix];
+  imports = [
+    ./sunshine.nix
+    ./basicConfiguration.nix
+  ];
 }
