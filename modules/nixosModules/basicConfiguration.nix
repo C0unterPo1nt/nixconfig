@@ -56,7 +56,10 @@
 
   environment.systemPackages = with pkgs; [
     home-manager
+    qmk
+    via
   ];
+
   #drivers
   services.printing.enable = true;
   hardware.opentabletdriver.enable = true;
@@ -69,6 +72,17 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
+
+  # keyboard
+  hardware.keyboard.qmk.enable = true;
+  services.udev.packages = with pkgs; [
+    qmk
+    qmk-udev-rules
+    via
+    qmk_hid
+    via
+    vial
+  ];
 
   # CPU Frequency Governor
   # Without this the cpu speed is limited to powersave levels

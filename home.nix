@@ -45,6 +45,8 @@
       zen-browser.default
       arduino-ide
       jellyfin-tui
+      fluffychat
+      vial
 
       # pretty stuff
       pipes # Screensaver
