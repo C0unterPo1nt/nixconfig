@@ -47,6 +47,7 @@
       jellyfin-tui
       fluffychat
       vial
+      blender
 
       # pretty stuff
       pipes # Screensaver
