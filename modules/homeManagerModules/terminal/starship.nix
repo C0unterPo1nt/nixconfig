@@ -8,11 +8,13 @@
         "[ 󱄅 ](bg:base01 fg:base05)"
         "[](bg:base02 fg:base01)"
         "$directory"
-        "[](fg:base02 bg:base03)"
+        ""
         "$git_branch"
         "$git_status"
-        "[](fg:base03)"
+        "[](fg:prev_bg)"
         "$cmd_duration"
+        "$fill"
+        "$nix_shell"
         "\n$character"
       ];
       directory = {
@@ -21,18 +23,22 @@
         truncation_length = 3;
         truncation_symbol = "…/";
       };
+      fill = {
+        symbol = " ";
+      };
       git_branch = {
         symbol = "";
         style = "fg:base05 bg:base03";
-        format = "[ $symbol $branch ]($style)";
+        format = "[](fg:prev_bg bg:base03)[ $symbol $branch ]($style)";
       };
       git_status = {
         style = "fg:base05 bg:base03";
         format = "[($all_status$ahead_behind )]($style)";
       };
       nix_shell = {
-        style = "fg:base05 bg:base04";
+        style = "fg:base08";
         symbol = "󱄅";
+        format = "[ $symbol $state( \($name\)) ]($style)";
       };
       cmd_duration = {
         disabled = false;
