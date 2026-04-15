@@ -16,13 +16,27 @@
       gs = "git status";
       ga = "git add";
       gc = "git commit -m";
+      nix-shell = "nix-shell --run $SHELL";
+      fetch = "clear && fastfetch --file ~/nixconfig/modules/homeManagerModules/terminal/anime_wow.txt -s Title:Separator:OS:Weather:Packages:Shell:DE:WM:Terminal:CPU:GPU:Memory:Break:Colors";
     };
     initContent = lib.mkAfter ''
 
-      lfcd () {
-        # `command` is needed in case `lfcd` is aliased to `lf`
-        cd "$(command lf -print-last-dir "$@")"
-      }
-    ''; #lf quit script
+       # lf quit script
+       lfcd () {
+         # `command` is needed in case `lfcd` is aliased to `lf`
+         cd "$(command lf -print-last-dir "$@")"
+       }
+
+       nix() {
+         if [[ $1 == "develop" ]]; then
+           shift
+           command nix develop -c $SHELL "$@"
+         else
+           command nix "$@"
+         fi
+       }
+
+      fetch
+    '';
   };
 }
