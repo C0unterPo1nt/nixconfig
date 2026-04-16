@@ -50,6 +50,14 @@
           nix.treesitter.enable = true;
           markdown.enable = true;
           rust.enable = true;
+          css = {
+            enable = true;
+            format.enable = true;
+          };
+          ts = {
+            enable = true;
+            extraDiagnostics.enable = true;
+          };
         };
         telescope = {
           enable = true;
@@ -67,6 +75,7 @@
         };
         statusline.lualine.enable = true;
         autocomplete.nvim-cmp.enable = true;
+        ui.colorizer.enable = true;
       };
     };
   };
