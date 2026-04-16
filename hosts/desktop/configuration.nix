@@ -29,6 +29,8 @@
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
+  hardware.keyboard.qmk.enable = true;
+
   fileSystems = {
     "/mnt/phoenixmedia" = {
       device = "10.0.0.21:/";
