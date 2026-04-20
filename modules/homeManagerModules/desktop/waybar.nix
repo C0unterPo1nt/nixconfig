@@ -52,7 +52,7 @@
       second = {
         modules-center = ["cava" "mpd"];
         modules-left = ["hyprland/workspaces" "hyprland/window"];
-        modules-right = ["custom/gpu-usage" "memory" "cpu" "disk"];
+        modules-right = ["custom/gpu-usage" "memory" "cpu" "disk#nix" "disk#hdd"];
         output = [settings.monitor2 or ""];
         height = 36;
         margin = "5 5 0";
@@ -80,8 +80,13 @@
         "memory" = {
           format = "  {percentage}%";
         };
-        "disk" = {
+        "disk#nix" = {
           format = "󰋊  {percentage_used}%";
+          path = "/";
+        };
+        "disk#hdd" = {
+          format = "󰓓  {percentage_used}%";
+          path = "/mnt/hdd";
         };
         "custom/gpu-usage" = {
           "exec" = "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits";
