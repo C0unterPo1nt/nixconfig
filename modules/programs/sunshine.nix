@@ -1,7 +1,6 @@
-{pkgs, ...}: 
- 
-{
-  services.sunshine = {
+_: {
+  flake.nixosModules.sunshine = _: {
+    services.sunshine = {
       enable = true;
       autoStart = true;
       capSysAdmin = true;
@@ -11,4 +10,5 @@
         capture = "kms";
       };
     };
+  };
 }

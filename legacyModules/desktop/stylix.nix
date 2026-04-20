@@ -26,6 +26,8 @@
       waybar.addCss = false;
       vscode.profileNames = ["phoenix"];
       nvf.enable = false;
+      ghostty.opacity.enable = true;
     };
+    opacity.terminal = 0.6;
   };
 }
