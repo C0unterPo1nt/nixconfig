@@ -37,9 +37,6 @@
       fsType = "nfs";
       options = ["x-systemd.automount" "nfsvers=4.2" "noauto"];
     };
-    "/mnt/hdd" = {
-      device = "/dev/disk/by-uuid/60CC8750CC871F80";
-    };
   };
   boot.supportedFilesystems = ["nfs"];
 
