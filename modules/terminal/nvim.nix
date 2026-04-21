@@ -35,6 +35,7 @@
           vimAlias = true;
           clipboard.enable = true;
           tabline.nvimBufferline.enable = true;
+          filetree.nvimTree.enable = true;
           lsp = {
             enable = true;
             formatOnSave = true;
