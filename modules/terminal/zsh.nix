@@ -18,7 +18,6 @@
         ga = "git add";
         gc = "git commit -m";
         nix-shell = "nix-shell --run $SHELL";
-        fetch = "clear && fastfetch --file ~/nixconfig/assets/anime_wow.txt -s Title:Separator:OS:Weather:Packages:Shell:DE:WM:Terminal:CPU:GPU:Memory:Break:Colors";
         gh = "cd ~";
       };
       initContent = lib.mkAfter ''
@@ -38,7 +37,7 @@
            fi
          }
 
-        fetch
+        fastfetch
       '';
     };
   };

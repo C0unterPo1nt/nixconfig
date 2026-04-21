@@ -4,7 +4,9 @@
     zen-browser,
     jpfonts,
     ...
-  }: {
+  }: let
+    system = pkgs.stdenv.hostPlatform.system;
+  in {
     home.username = "phoenix";
     home.homeDirectory = "/home/phoenix";
     home.sessionVariables = {
@@ -56,7 +58,7 @@
         cmatrix # Screensaver
         cava # Audio Visualizer
         astroterm # Command Line Celestial Viewer
-        fastfetch
+        self.packages.${system}.fastfetch
         nitch # screen fetch util, deprecated
 
         #libre and spellchecker
