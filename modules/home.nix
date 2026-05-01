@@ -52,6 +52,7 @@
         fluffychat
         vial
         blender
+        obsidian
 
         # pretty stuff
         pipes # Screensaver
