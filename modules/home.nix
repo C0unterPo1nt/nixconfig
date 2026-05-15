@@ -53,6 +53,7 @@
         vial
         blender
         obsidian
+        picard
 
         # pretty stuff
         pipes # Screensaver
