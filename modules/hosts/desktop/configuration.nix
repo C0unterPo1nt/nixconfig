@@ -3,7 +3,6 @@
     imports = with self.nixosModules; [
       desktopHardware
       basicConfiguration
-      sunshine
     ];
 
     networking = {
@@ -24,6 +23,17 @@
     xdg.portal = {
       enable = true;
       extraPortals = [pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-hyprland];
+    };
+
+    services.sunshine = {
+      enable = true;
+      autoStart = true;
+      capSysAdmin = true;
+      openFirewall = true;
+      settings = {
+        output_name = "0";
+        capture = "kms";
+      };
     };
 
     environment.sessionVariables.NIXOS_OZONE_WL = "1";
