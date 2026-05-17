@@ -1,11 +1,20 @@
-{self, ...}: {
+{
+  self,
+  lib,
+  ...
+}: {
   flake.nixosModules.laptopConfiguration = {...}: {
     imports = with self.nixosModules; [
       laptopHardware
       basicConfiguration
     ];
 
-    networking.hostName = "laptop";
+    networking = {
+      networkmanager.dns = lib.mkForce "default";
+      hostName = "laptop";
+      #firewall.allowedTCPPorts = [ ... ];
+      firewall.allowedUDPPorts = [5353 31382];
+    };
 
     # desktop
     services.displayManager.ly = {
@@ -26,9 +35,6 @@
       };
     };
     boot.supportedFilesystems = ["nfs"];
-
-    # networking.firewall.allowedTCPPorts = [ ... ];
-    networking.firewall.allowedUDPPorts = [5353 31382];
 
     # DO NOT DELETE
     system.stateVersion = "25.05"; # Did you read the comment?
