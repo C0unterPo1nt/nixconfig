@@ -28,8 +28,8 @@
           "4, monitor:$monitor1, default:true, persistent:true"
         ];
         monitor = [
-          "$monitor1, preferred, auto-right, 1"
-          "$monitor2, preferred, auto-left, 1"
+          "$monitor1, preferred, auto-right, ${settings.monitorScaling}"
+          "$monitor2, preferred, auto-left, ${settings.monitorScaling}"
         ];
         bind = [
           "$mainmod, Return, exec, $TERMINAL" # lauch term

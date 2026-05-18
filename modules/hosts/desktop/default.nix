@@ -18,11 +18,12 @@ in {
     inherit pkgs;
     extraSpecialArgs = {
       zen-browser = zenpkg;
-      jpfonts = jpfonts;
+      inherit jpfonts;
       settings = {
         name = "desktop";
         monitor1 = "HDMI-A-4";
         monitor2 = "HDMI-A-5";
+        monitorScaling = "1";
         /*
         TODO: REMOVE These are impure paths
         */
