@@ -77,6 +77,11 @@
           #brightness
           ", F9, exec, brightnessctl s 10%+"
           ", F8, exec, brightnessctl s 10%-"
+
+          # Volume
+          ", F1, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+          ", F2, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+          ", F3, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
         ];
         bindr = [
           "$mainmod, Super_L, exec, pkill fuzzel || fuzzel" # application launcher

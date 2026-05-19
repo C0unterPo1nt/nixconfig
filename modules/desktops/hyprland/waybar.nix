@@ -32,7 +32,7 @@ _: {
         margin = "3 3 0";
       in {
         main = {
-          modules-right = ["privacy" "clock#date"];
+          modules-right = ["privacy" "wireplumber" "clock#date"];
           modules-left =
             if settings.nativeMonitorCount > 1
             then ["hyprland/window"]
@@ -49,6 +49,10 @@ _: {
                 "name" = "cava";
               }
             ];
+          };
+          "wireplumber" = {
+            format = "";
+            format-muted = " ";
           };
           "clock#date" = {
             format = "{:%A, %B %e}";
@@ -118,7 +122,7 @@ _: {
             color: @base08;
         }
 
-        .module, #privacy {
+        .module, #privacy, #wireplumber.muted {
             background-color: alpha(@base01, 0.6);
             border: 1px solid @base0D;
             border-radius: 22px;
@@ -127,6 +131,13 @@ _: {
             margin-right: 5px;
             padding-left: 14px;
             padding-right: 14px;
+            opacity: 1;
+        }
+
+        #wireplumber {
+            opacity: 0;
+            padding: 0;
+            margin: 0;
         }
       '';
     };
