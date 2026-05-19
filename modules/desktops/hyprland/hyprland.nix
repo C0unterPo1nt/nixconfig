@@ -8,7 +8,7 @@
     wayland.windowManager.hyprland = {
       enable = true;
       package = pkgs.hyprland;
-      settings = {
+      settings = with settings; {
         env = [
           "XDG_CURRENT_DESKTOP,Hyprland"
           "XDG_SESSION_TYPE,wayland"
@@ -19,17 +19,24 @@
         "$thirdmod" = "SUPER_CTRL";
         "$fourthmod" = "CTRL";
         "$fifthmod" = "ALT";
-        "$monitor1" = settings.monitor1;
+        "$monitor1" = monitor1;
         "$monitor2" = settings.monitor2 or "";
-        workspace = [
-          "1, monitor:$monitor2, default:true, persistent:true"
-          "2, monitor:$monitor2, default:true, persistent:true"
-          "3, monitor:$monitor2, persistent:true"
-          "4, monitor:$monitor1, default:true, persistent:true"
-        ];
+        workspace =
+          if nativeMonitorCount > 1
+          then [
+            "1, monitor:$monitor2, default:true, persistent:true"
+            "2, monitor:$monitor2, default:true, persistent:true"
+            "3, monitor:$monitor2, persistent:true"
+            "4, monitor:$monitor1, default:true, persistent:true"
+          ]
+          else [
+            "1, monitor:$monitor1, default:true, persistent:true"
+            "2, monitor:$monitor1, default:true, persistent:true"
+            "3, monitor:$monitor1, persistent:true"
+          ];
         monitor = [
-          "$monitor1, preferred, auto-right, ${settings.monitorScaling}"
-          "$monitor2, preferred, auto-left, ${settings.monitorScaling}"
+          "$monitor1, preferred, auto-right, ${monitorScaling}"
+          "$monitor2, preferred, auto-left, ${monitorScaling}"
         ];
         bind = [
           "$mainmod, Return, exec, $TERMINAL" # lauch term
@@ -136,6 +143,7 @@
           "blur, notifications" # Dunst
           "ignorealpha 0, notifications"
         ];
+        gesture = ["3, horizontal, scale: .6, workspace"];
         xwayland = {
           force_zero_scaling = true;
         };

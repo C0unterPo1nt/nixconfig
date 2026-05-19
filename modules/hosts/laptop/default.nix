@@ -24,6 +24,7 @@ in {
         monitor1 = "eDP-1";
         monitor2 = "eDP-2";
         monitorScaling = "2";
+        nativeMonitorCount = 1;
         /*
         TODO: REMOVE These are impure paths
         */

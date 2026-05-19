@@ -33,7 +33,10 @@ _: {
       in {
         main = {
           modules-right = ["privacy" "clock#date"];
-          modules-left = ["hyprland/window"];
+          modules-left =
+            if settings.nativeMonitorCount > 1
+            then ["hyprland/window"]
+            else ["hyprland/workspaces" "hyprland/window"];
           modules-center = ["clock#time"];
           output = [settings.monitor1];
           inherit height;

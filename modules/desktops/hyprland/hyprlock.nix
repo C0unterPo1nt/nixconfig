@@ -4,7 +4,7 @@ _: {
     lib,
     ...
   }: {
-    programs.hyprlock = {
+    programs.hyprlock = with settings; {
       enable = true;
       settings = {
         bezier = [
@@ -20,35 +20,35 @@ _: {
         ];
         background = lib.mkForce [
           {
-            path = "~/Pictures/Background/active/jin_in_troia.png";
-            monitor = settings.monitor1;
+            path = wallpaper1;
+            monitor = monitor1;
             blur_size = 2;
             blur_passes = 3;
           }
           {
-            path = "~/Pictures/Background/active/jin_yanxia_crt.png";
-            monitor = settings.monitor2;
+            path = wallpaper2;
+            monitor = monitor2;
             blur_size = 2;
             blur_passes = 3;
           }
         ];
         label = [
           {
-            monitor = settings.monitor1;
+            monitor = monitor1;
             text = " $USER";
             font_size = 60;
             font_family = "Mononoki Nerd Font";
             position = "0, 10%";
           }
           {
-            monitor = settings.monitor2;
+            monitor = monitor2;
             text = builtins.readFile ../../../assets/miku_bored.txt;
             font_size = 20;
             font_family = "Mononoki Nerd Font";
           }
         ];
         input-field = {
-          monitor = settings.monitor1;
+          monitor = monitor1;
           fade_on_empty = false;
           placeholder_text = "OwO";
           fail_text = ">w<";

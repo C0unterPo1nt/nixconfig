@@ -24,6 +24,7 @@ in {
         monitor1 = "HDMI-A-4";
         monitor2 = "HDMI-A-5";
         monitorScaling = "1";
+        nativeMonitorCount = 2;
         /*
         TODO: REMOVE These are impure paths
         */
