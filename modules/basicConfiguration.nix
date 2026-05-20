@@ -1,4 +1,4 @@
-{...}: {
+{self, ...}: {
   flake.nixosModules.basicConfiguration = {
     pkgs,
     config,
@@ -9,6 +9,10 @@
       efi.canTouchEfiVariables = true;
       systemd-boot.configurationLimit = 6;
     };
+
+    imports = [
+      self.nixosModules.ly
+    ];
 
     # Enable networking
     networking.networkmanager = {
