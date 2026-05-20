@@ -34,6 +34,7 @@
         blender
         obsidian
         picard
+        xivlauncher
 
         # pretty stuff
         pipes # Screensaver
