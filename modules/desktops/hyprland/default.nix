@@ -6,6 +6,7 @@
       hypridle
       hyprlock
       waybar
+      dunst
     ];
   };
 }
