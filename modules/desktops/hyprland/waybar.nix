@@ -60,12 +60,15 @@ _: {
               default = ["󰂎" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
               charging = ["󰢟" "󰢜" "󰂆" "󰂇" "󰂈" "󰢝" "󰂉" "󰢞" "󰂊" "󰂋" "󰂅"];
             };
+            tooltip-format = "{timeTo}\n󱐋 {power} Watts";
             interval = 20;
           };
           "clock#date" = {
             format = "{:%A, %B %e}";
+            tooltip = false;
           };
           "clock#time" = {
+            tooltip = false;
             format = "  {:%H:%M}";
           };
         };
