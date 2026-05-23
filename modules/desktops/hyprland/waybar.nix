@@ -32,7 +32,7 @@ _: {
         margin = "3 3 0";
       in {
         main = {
-          modules-right = ["privacy" "wireplumber" "clock#date"];
+          modules-right = ["privacy" "wireplumber" "battery" "clock#date"];
           modules-left =
             if settings.nativeMonitorCount > 1
             then ["hyprland/window"]
@@ -53,6 +53,14 @@ _: {
           "wireplumber" = {
             format = "";
             format-muted = " ";
+          };
+          "battery" = {
+            format = "{icon} {capacity}%";
+            format-icons = {
+              default = ["󰂎" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
+              charging = ["󰢟" "󰢜" "󰂆" "󰂇" "󰂈" "󰢝" "󰂉" "󰢞" "󰂊" "󰂋" "󰂅"];
+            };
+            interval = 20;
           };
           "clock#date" = {
             format = "{:%A, %B %e}";
@@ -98,7 +106,7 @@ _: {
       };
       style = lib.mkAfter ''
         * {
-          font-size: 18;
+          font-size: 18px;
         }
 
         window#waybar {
@@ -122,7 +130,7 @@ _: {
             color: @base08;
         }
 
-        .module, #privacy, #wireplumber.muted {
+        .module, #privacy, #wireplumber.muted, tooltip {
             background-color: alpha(@base01, 0.6);
             border: 1px solid @base0D;
             border-radius: 22px;
