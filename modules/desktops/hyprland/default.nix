@@ -7,6 +7,7 @@
       hyprlock
       waybar
       dunst
+      fuzzel
     ];
   };
 }
