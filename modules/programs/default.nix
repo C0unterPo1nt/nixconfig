@@ -86,6 +86,7 @@
       git.enable = true;
       element-desktop.enable = true;
       ghostty.enable = true;
+      bluetuith.enable = true;
     };
   };
 }

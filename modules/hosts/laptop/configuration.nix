@@ -16,6 +16,11 @@
       firewall.allowedUDPPorts = [5353 31382];
     };
 
+    hardware.bluetooth = {
+      enable = true;
+      powerOnBoot = false;
+    };
+
     # desktop
     programs.hyprland.enable = true;
     # https://github.com/NixOS/nixpkgs/pull/297434#issuecomment-2348783988
