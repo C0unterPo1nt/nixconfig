@@ -30,6 +30,19 @@ _: {
           };
         };
         margin = "3 3 0";
+        time = {
+          tooltip = false;
+          format = "  {:%H:%M}";
+        };
+        battery = {
+          format = "{icon} {capacity}%";
+          format-icons = {
+            default = ["󰂎" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
+            charging = ["󰢟" "󰢜" "󰂆" "󰂇" "󰂈" "󰢝" "󰂉" "󰢞" "󰂊" "󰂋" "󰂅"];
+          };
+          tooltip-format = "{timeTo}\n󱐋 {power} Watts";
+          interval = 20;
+        };
       in {
         main = {
           modules-right = ["privacy" "wireplumber" "battery" "clock#date"];
@@ -54,58 +67,60 @@ _: {
             format = "";
             format-muted = " ";
           };
-          "battery" = {
-            format = "{icon} {capacity}%";
-            format-icons = {
-              default = ["󰂎" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
-              charging = ["󰢟" "󰢜" "󰂆" "󰂇" "󰂈" "󰢝" "󰂉" "󰢞" "󰂊" "󰂋" "󰂅"];
-            };
-            tooltip-format = "{timeTo}\n󱐋 {power} Watts";
-            interval = 20;
-          };
+          "battery" = battery;
           "clock#date" = {
             format = "{:%A, %B %e}";
             tooltip = false;
           };
-          "clock#time" = {
-            tooltip = false;
-            format = "  {:%H:%M}";
-          };
+          "clock#time" = time;
         };
-        second = {
-          modules-center = ["cava" "mpd"];
-          modules-left = ["hyprland/workspaces" "hyprland/window"];
-          modules-right = ["custom/gpu-usage" "memory" "cpu" "disk#nix" "disk#hdd"];
-          output = [settings.monitor2 or ""];
-          inherit height;
-          inherit margin;
-          "hyprland/window" = hyprland-window;
-          "cpu" = {
-            format = "  {usage}%";
+        second =
+          if settings.nativeMonitorCount > 1
+          then {
+            modules-center = ["cava" "mpd"];
+            modules-left = ["hyprland/workspaces" "hyprland/window"];
+            modules-right = ["custom/gpu-usage" "memory" "cpu" "disk#nix" "disk#hdd"];
+            output = [settings.monitor2];
+            inherit height;
+            inherit margin;
+            "hyprland/window" = hyprland-window;
+            "cpu" = {
+              format = "  {usage}%";
+            };
+            "memory" = {
+              format = "  {percentage}%";
+            };
+            "disk#nix" = {
+              format = "󰋊  {percentage_used}%";
+              path = "/";
+            };
+            "disk#hdd" = {
+              format = "󰓓  {percentage_used}%";
+              path = "/mnt/hdd";
+            };
+            "custom/gpu-usage" = {
+              "exec" = "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits";
+              "format" = "󰡁 {}%";
+              "return-type" = "";
+              "interval" = 1;
+            };
+            "cava" = {
+              "bars" = 14;
+              "format-icons" = ["▁" "▂" "▃" "▄" "▅" "▆" "▇" "█"];
+              "bar_delimiter" = 0;
+            };
+          }
+          else {
+            modules-center = ["clock#time"];
+            modules-left = ["hyprland/window"];
+            modules-right = ["battery"];
+            output = [settings.monitor2];
+            inherit height;
+            inherit margin;
+            "clock#time" = time;
+            "hyprland/window" = hyprland-window;
+            "battery" = battery;
           };
-          "memory" = {
-            format = "  {percentage}%";
-          };
-          "disk#nix" = {
-            format = "󰋊  {percentage_used}%";
-            path = "/";
-          };
-          "disk#hdd" = {
-            format = "󰓓  {percentage_used}%";
-            path = "/mnt/hdd";
-          };
-          "custom/gpu-usage" = {
-            "exec" = "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits";
-            "format" = "󰡁 {}%";
-            "return-type" = "";
-            "interval" = 1;
-          };
-          "cava" = {
-            "bars" = 14;
-            "format-icons" = ["▁" "▂" "▃" "▄" "▅" "▆" "▇" "█"];
-            "bar_delimiter" = 0;
-          };
-        };
       };
       style = lib.mkAfter ''
         * {

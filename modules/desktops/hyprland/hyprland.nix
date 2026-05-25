@@ -8,7 +8,8 @@
     wayland.windowManager.hyprland = {
       enable = true;
       package = pkgs.hyprland;
-      settings = with settings; {
+      settings = with settings;
+      with config.lib.stylix; {
         env = [
           "XDG_CURRENT_DESKTOP,Hyprland"
           "XDG_SESSION_TYPE,wayland"
@@ -20,7 +21,11 @@
         "$fourthmod" = "CTRL";
         "$fifthmod" = "ALT";
         "$monitor1" = monitor1;
-        "$monitor2" = settings.monitor2 or "";
+        "$monitor2" = monitor2;
+        "$workspaceMonitor" =
+          if nativeMonitorCount > 1
+          then monitor2
+          else monitor1;
         workspace =
           if nativeMonitorCount > 1
           then [
@@ -33,11 +38,18 @@
             "1, monitor:$monitor1, default:true, persistent:true"
             "2, monitor:$monitor1, default:true, persistent:true"
             "3, monitor:$monitor1, persistent:true"
+            "4, monitor:$monitor2, default:true"
           ];
-        monitor = [
-          "$monitor1, preferred, auto-right, ${monitorScaling}"
-          "$monitor2, preferred, auto-left, ${monitorScaling}"
-        ];
+        monitor =
+          if nativeMonitorCount > 1
+          then [
+            "$monitor1, preferred, auto-right, ${monitorScaling}"
+            "$monitor2, preferred, auto-left, ${monitorScaling}"
+          ]
+          else [
+            "$monitor1, preferred, auto, ${monitorScaling}"
+            "$monitor2, preferred, auto-up, 1"
+          ];
         bind = [
           "$mainmod, Return, exec, $TERMINAL" # lauch term
           "$mainmod, Space, exec, pkill fuzzel || fuzzel" # application launcher
@@ -60,11 +72,11 @@
           "$secondmod, J, movewindow, d"
 
           # workspaces
-          "$thirdmod, H, focusmonitor, $monitor2"
+          "$thirdmod, H, focusmonitor, $workspaceMonitor"
           "$thirdmod, H, workspace, m-1"
-          "$thirdmod, L, focusmonitor, $monitor2"
+          "$thirdmod, L, focusmonitor, $workspaceMonitor"
           "$thirdmod, L, workspace, m+1"
-          "$mainmod, Tab, focusmonitor, $monitor2"
+          "$mainmod, Tab, focusmonitor, $workspaceMonitor"
           "$mainmod, Tab, workspace, m+1"
 
           # fullscreen
@@ -83,6 +95,7 @@
           ", F2, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
           ", F3, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
         ];
+
         bindr = [
           "$mainmod, Super_L, exec, pkill fuzzel || fuzzel" # application launcher
         ];
@@ -93,7 +106,7 @@
         general = {
           gaps_out = 5;
           gaps_in = 5;
-          "col.inactive_border" = lib.mkForce ("rgba(" + config.lib.stylix.colors.base01 + "70)");
+          "col.inactive_border" = lib.mkForce "rgba(${colors.base01}70)";
         };
         decoration = {
           rounding = 10;
@@ -103,8 +116,8 @@
           };
           shadow = {
             render_power = 1;
-            color = lib.mkForce ("rgba(" + config.lib.stylix.colors.base01 + "99)");
-            color_inactive = lib.mkForce ("rgba(" + config.lib.stylix.colors.base01 + "70)");
+            color = lib.mkForce "rgba(${colors.base01}99)";
+            color_inactive = lib.mkForce "rgba(${colors.base01}70)";
           };
         };
         bezier = [

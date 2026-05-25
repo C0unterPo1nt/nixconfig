@@ -22,14 +22,14 @@ in {
       settings = {
         name = "laptop";
         monitor1 = "eDP-1";
-        monitor2 = "eDP-2";
+        monitor2 = "HDMI-A-1";
         monitorScaling = "2";
         nativeMonitorCount = 1;
         /*
         TODO: REMOVE These are impure paths
         */
         wallpaper1 = "~/Pictures/Background/jin_viper_BETTER.png";
-        wallpaper2 = "";
+        wallpaper2 = "~/Pictures/Background/jin_viper_BETTER.png";
       };
     };
     modules = [

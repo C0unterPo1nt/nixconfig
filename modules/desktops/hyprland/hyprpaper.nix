@@ -16,6 +16,7 @@ _: {
         wallpaper = [
           (monitor1 + "," + wallpaper1)
           (settings.monitor2 or "" + "," + settings.wallpaper2 or "")
+          ("," + wallpaper1)
         ];
       };
     };
