@@ -1,4 +1,4 @@
-{...}: {
+_: {
   flake.homeModules.zsh = {
     settings,
     lib,
@@ -19,6 +19,10 @@
         gc = "git commit -m";
         nix-shell = "nix-shell --run $SHELL";
         gh = "cd ~";
+        audio = "wiremix";
+        wifi = "nmtui";
+        music = "jellyfin-tui";
+        bluetooth = "bluetuith";
       };
       initContent = lib.mkAfter ''
 
