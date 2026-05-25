@@ -35,6 +35,7 @@
         obsidian
         picard
         xivlauncher
+        wiremix # Wireplumber Tui
 
         # pretty stuff
         pipes # Screensaver
