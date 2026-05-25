@@ -8,6 +8,7 @@
         OPENER = "handlr";
         EDITOR = "nvim";
         VISUAL = "nvim";
+        SHELL = "zsh";
       };
     };
 
