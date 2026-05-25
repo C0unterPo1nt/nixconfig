@@ -36,6 +36,7 @@
         picard
         xivlauncher
         wiremix # Wireplumber Tui
+        p7zip
 
         # pretty stuff
         pipes # Screensaver
