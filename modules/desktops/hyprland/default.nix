@@ -8,6 +8,8 @@
       waybar
       dunst
       fuzzel
+      stylix
+      xdg
     ];
   };
 }

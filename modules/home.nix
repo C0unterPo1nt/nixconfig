@@ -26,7 +26,6 @@
       self.homeModules.terminalConfig
       self.homeModules.hyprConfig
       self.homeModules.programsConfig
-      ../legacyModules/modules.nix
     ];
 
     services = {
