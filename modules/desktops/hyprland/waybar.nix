@@ -28,6 +28,7 @@ _: {
             "(.*) steam" = "󰓓 $1";
             "(.*) org.gnome.Nautilus" = "  $1";
           };
+          tooltip = false;
         };
         margin = "3 3 0";
         time = {
