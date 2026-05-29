@@ -37,6 +37,8 @@
         xivlauncher
         wiremix # Wireplumber Tui
         p7zip
+        inkscape
+        speedcrunch
 
         # pretty stuff
         pipes # Screensaver
