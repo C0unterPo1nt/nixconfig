@@ -1,18 +1,15 @@
-{...}: {
-  flake.homeModules.nvim = {
-    pkgs,
-    config,
-    ...
-  }: {
+_: {
+  flake.homeModules.nvim = {pkgs, ...}: {
     programs.nvf = {
       enable = true;
       settings = {
         vim = {
+          # Stylix Is currently overriding, I've left these here in case I want to apply overrides
+          /*
           theme = {
             enable = true;
             name = "base16";
-            # I have stylix turned off rn, these are here for overrides if I want them
-            base16-colors = with config.lib.stylix.colors; {
+              base16-colors = with config.lib.stylix.colors; {
               inherit base00;
               inherit base01;
               inherit base02;
@@ -31,11 +28,51 @@
               inherit base0F;
             };
           };
+
+          */
           binds.whichKey.enable = true;
           vimAlias = true;
           clipboard.enable = true;
+
           tabline.nvimBufferline.enable = true;
-          filetree.nvimTree.enable = true;
+          filetree.nvimTree = {
+            enable = true;
+            openOnSetup = false;
+            setupOpts.actions.open_file.quit_on_open = true;
+          };
+          statusline.lualine.enable = true;
+
+          autocomplete.nvim-cmp.enable = true;
+          ui.colorizer.enable = true;
+          mini.diff = {
+            enable = true;
+            setupOpts = {
+              view = {
+                style = "sign";
+                signs = {
+                  add = "󱗼";
+                  change = "󱗿";
+                  delete = "󰇙";
+                };
+              };
+            };
+          };
+
+          telescope = {
+            enable = true;
+            extensions = [
+              {
+                name = "fzf";
+                packages = [pkgs.vimPlugins.telescope-fzf-native-nvim];
+                setup = {fzf = {fuzzy = true;};};
+              }
+            ];
+            setupOpts = {
+              defaults.selection_caret = "> ";
+              defaults.color_devicons = true;
+            };
+          };
+
           lsp = {
             enable = true;
             formatOnSave = true;
@@ -61,23 +98,6 @@
               extraDiagnostics.enable = true;
             };
           };
-          telescope = {
-            enable = true;
-            extensions = [
-              {
-                name = "fzf";
-                packages = [pkgs.vimPlugins.telescope-fzf-native-nvim];
-                setup = {fzf = {fuzzy = true;};};
-              }
-            ];
-            setupOpts = {
-              defaults.selection_caret = "> ";
-              defaults.color_devicons = true;
-            };
-          };
-          statusline.lualine.enable = true;
-          autocomplete.nvim-cmp.enable = true;
-          ui.colorizer.enable = true;
         };
       };
     };
