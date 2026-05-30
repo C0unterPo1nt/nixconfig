@@ -39,6 +39,7 @@
           p7zip
           inkscape
           speedcrunch
+          tmux
 
           # pretty stuff
           pipes # Screensaver
