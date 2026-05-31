@@ -42,7 +42,7 @@ _: {
           }
           {
             monitor = monitor2;
-            text = builtins.readFile ../../../assets/miku_bored.txt;
+            text = builtins.readFile ../../assets/miku_bored.txt;
             font_size = 20;
             font_family = "Mononoki Nerd Font";
           }
