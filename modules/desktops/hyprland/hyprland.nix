@@ -140,26 +140,26 @@
           workspace_wraparound = true;
         };
         windowrule = [
-          "animation gnomed, floating:1"
+          "animation gnomed, match:float true"
           # floats
-          "float, title:(Open File[s]*)"
-          "float, title:(Select what to share)"
-          "float, title:(Open Folder*)"
-          "float, class:(steam)"
-          "tile, title:(Steam)"
-          "float, class:(qimgv) initialTitle:negative:(qimgv .*)"
-          "size monitor_w*75, monitor_h*75, class:(qimgv) floating:1"
-          "stayfocused, class:(qimgv) floating:1"
-          "stayfocused, class:(swappy) floating:1"
-          "size monitor_w*75, monitor_h*75, class:(swappy) floating:1"
+          "float true, match:title (Open File[s]*)"
+          "float true, match:title (Select what to share)"
+          "float true, match:title (Open Folder*)"
+          "float true, match:class (steam)"
+          "tile true, match:title (Steam)"
+          "float true, match:class (qimgv) initialTitle:negative:(qimgv .*)"
+          "size monitor_w*75 monitor_h*75, match:class (qimgv) floating:1"
+          "stay_focused true, match:class (qimgv) floating:1"
+          "stay_focused true, match:class (swappy) floating:1"
+          "size monitor_w*75 monitor_h*75, match:class (swappy) floating:1"
         ];
         layerrule = [
-          "blur, waybar"
-          "ignorealpha 0, waybar"
-          "blur, launcher" # Fuzzel
-          "ignorealpha 0, launcher"
-          "blur, notifications" # Dunst
-          "ignorealpha 0, notifications"
+          "blur on, match:namespace waybar"
+          "ignore_alpha 0, match:namespace waybar"
+          "blur on, match:namespace launcher" # Fuzzel
+          "ignore_alpha 0, match:namespace launcher"
+          "blur on, match:namespace notifications" # Dunst
+          "ignore_alpha 0, match:namespace notifications"
         ];
         gesture = ["3, horizontal, scale: .6, workspace"];
         xwayland = {

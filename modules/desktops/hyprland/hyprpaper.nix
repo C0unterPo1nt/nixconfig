@@ -14,9 +14,18 @@ _: {
         ];
 
         wallpaper = [
-          (monitor1 + "," + wallpaper1)
-          (settings.monitor2 or "" + "," + settings.wallpaper2 or "")
-          ("," + wallpaper1)
+          {
+            monitor = monitor1;
+            path = wallpaper1;
+          }
+          {
+            monitor = monitor2;
+            path = wallpaper2;
+          }
+          {
+            monitor = "";
+            path = wallpaper1;
+          }
         ];
       };
     };
