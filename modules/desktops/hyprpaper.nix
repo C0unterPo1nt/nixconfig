@@ -27,6 +27,7 @@ _: {
             path = wallpaper1;
           }
         ];
+        splash = false;
       };
     };
   };
