@@ -9,9 +9,12 @@
     config,
     ...
   }:
-    with self.homeModules; {
+    with self.homeModules;
+    with lib; {
       imports = [hyprlandScrolling hyprlandDwindle];
       hyprlandDwindle.enable = true;
+
+      services.clipse.enable = true;
 
       wayland.windowManager.hyprland = {
         enable = true;
@@ -26,6 +29,8 @@
           "$mainmod" = "SUPER";
           "$secondmod" = "SUPER_ALT";
           "$thirdmod" = "SUPER_CTRL";
+          "$fourthmod" = "SUPER_SHIFT";
+          "$TERMINAL" = "ghostty";
           "$workspaceMonitor" =
             if nativeMonitorCount > 1
             then monitor2
@@ -98,8 +103,10 @@
             ", F1, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
             ", F2, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
             ", F3, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
-          ];
 
+            # Clipboard history
+            "$thirdmod, C, exec, $TERMINAL --class=com.savedra1.clipse -e 'clipse'"
+          ];
           bindr = [
             "$mainmod, Super_L, exec, pkill fuzzel || fuzzel" # application launcher
           ];
@@ -141,19 +148,12 @@
           animations = {
             workspace_wraparound = true;
           };
-          windowrule = [
-            "animation gnomed, match:float true"
-            # floats
-            "float true, match:title (Open File[s]*)"
-            "float true, match:title (Select what to share)"
-            "float true, match:title (Open Folder*)"
-            "float true, match:class (steam)"
-            "tile true, match:title (Steam)"
-            "float true, match:class (qimgv) initialTitle:negative:(qimgv .*)"
-            "size monitor_w*75 monitor_h*75, match:class (qimgv) floating:1"
-            "stay_focused true, match:class (qimgv) floating:1"
-            "stay_focused true, match:class (swappy) floating:1"
-            "size monitor_w*75 monitor_h*75, match:class (swappy) floating:1"
+          windowrule = concatLists [
+            ["animation gnomed, match:float true"]
+            (map (class: "float true, match:class (${class})") ["steam" "qimgv" "com.savedra1.clipse"])
+            (map (title: "float true, match:title (${title})") ["Open File[s]*" "Select what to share" "Open Folder*"])
+            ["tile true, match:title (Steam)"]
+            (map (class: "stay_focused on, match:class (${class})") ["com.savedra1.clipse" "swappy" "qimgv"])
           ];
           layerrule = [
             "blur on, match:namespace waybar"

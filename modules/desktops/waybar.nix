@@ -27,6 +27,7 @@ _: {
             "(.*) krita" = "  $1";
             "(.*) steam" = "󰓓 $1";
             "(.*) org.gnome.Nautilus" = "  $1";
+            "clipse com.savedra1.clipse" = "󰅌 Clipboard";
           };
           tooltip = false;
         };
