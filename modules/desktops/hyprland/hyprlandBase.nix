@@ -18,6 +18,7 @@
 
       wayland.windowManager.hyprland = {
         enable = true;
+        configType = "hyprlang";
         package = pkgs.hyprland;
         settings = with settings;
         with config.lib.stylix; {

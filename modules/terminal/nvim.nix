@@ -93,7 +93,7 @@ _: {
               enable = true;
               format.enable = true;
             };
-            ts = {
+            typescript = {
               enable = true;
               extraDiagnostics.enable = true;
             };

@@ -71,7 +71,7 @@
           wf-recorder # screen recording
           btop # hardware monitor
           ffmpeg
-          xorg.xrandr # monitor utils
+          xrandr # monitor utils
           handlr-regex # another opener
           mpc
           avrdude
