@@ -15,10 +15,7 @@
     ];
 
     # Enable networking
-    networking.networkmanager = {
-      enable = true;
-      dns = "none";
-    };
+    networking.networkmanager.enable = true;
 
     # Flakes
     nix.settings.experimental-features = ["nix-command" "flakes"];

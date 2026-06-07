@@ -21,8 +21,8 @@ in {
       inherit jpfonts;
       settings = {
         name = "desktop";
-        monitor1 = "HDMI-A-4";
-        monitor2 = "HDMI-A-5";
+        monitor1 = "HDMI-A-5";
+        monitor2 = "HDMI-A-4";
         monitorScaling = "1";
         nativeMonitorCount = 2;
         /*

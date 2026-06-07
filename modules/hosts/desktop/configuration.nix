@@ -1,4 +1,8 @@
-{self, ...}: {
+{
+  self,
+  lib,
+  ...
+}: {
   flake.nixosModules.desktopConfiguration = {pkgs, ...}: {
     imports = with self.nixosModules; [
       desktopHardware
@@ -11,6 +15,8 @@
       dhcpcd.extraConfig = "nohook resolv.conf";
       #firewall.allowedTCPPorts = [ ... ];
       firewall.allowedUDPPorts = [5353 31382];
+      wireless.enable = true;
+      useDHCP = lib.mkDefault true;
     };
 
     # desktop

@@ -1,8 +1,4 @@
-{
-  self,
-  lib,
-  ...
-}: {
+{self, ...}: {
   flake.nixosModules.laptopConfiguration = {...}: {
     imports = with self.nixosModules; [
       laptopHardware
@@ -10,7 +6,6 @@
     ];
 
     networking = {
-      networkmanager.dns = lib.mkForce "default";
       hostName = "laptop";
       #firewall.allowedTCPPorts = [ ... ];
       firewall.allowedUDPPorts = [5353 31382];

@@ -52,8 +52,8 @@
           monitor =
             if nativeMonitorCount > 1
             then [
-              "${monitor1}, preferred, auto-right, ${monitorScaling}"
-              "${monitor2}, preferred, auto-left, ${monitorScaling}"
+              "${monitor1}, preferred, auto-left, ${monitorScaling}"
+              "${monitor2}, preferred, auto-right, ${monitorScaling}"
             ]
             else [
               "${monitor1}, preferred, auto, ${monitorScaling}"
