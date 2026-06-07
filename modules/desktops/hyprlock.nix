@@ -4,7 +4,9 @@ _: {
     lib,
     ...
   }: {
-    programs.hyprlock = with settings; {
+    programs.hyprlock = with settings; let
+      font_family = "Mononoki Nerd Font";
+    in {
       enable = true;
       settings = {
         bezier = [
@@ -37,14 +39,21 @@ _: {
             monitor = monitor1;
             text = " $USER";
             font_size = 60;
-            font_family = "Mononoki Nerd Font";
+            inherit font_family;
             position = "0, 10%";
+          }
+          {
+            monitor = monitor1;
+            text = "$TIME12";
+            font_size = 30;
+            inherit font_family;
+            position = "0, -45%";
           }
           {
             monitor = monitor2;
             text = builtins.readFile ../../assets/miku_bored.txt;
             font_size = 20;
-            font_family = "Mononoki Nerd Font";
+            inherit font_family;
           }
         ];
         input-field = {
