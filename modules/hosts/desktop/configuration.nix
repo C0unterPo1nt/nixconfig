@@ -28,6 +28,8 @@
       extraPortals = [pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-hyprland];
     };
 
+    programs.kdeconnect.enable = true;
+
     services.sunshine = {
       enable = true;
       autoStart = true;
