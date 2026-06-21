@@ -6,11 +6,16 @@ _: {
         open = "$$OPENER open $f";
       };
       cmdKeybindings = {
-        "<enter>" = "open";
+      };
+      settings = {
+        drawbox = true;
+        relativenumber = true;
+        watch = true;
       };
       extraConfig = ''
         set ifs "\n"
       '';
     };
+    programs.zsh.shellAliases.lf = "cd \"$(command lf -print-last-dir \"$@\")\"";
   };
 }
