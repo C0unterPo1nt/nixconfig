@@ -29,11 +29,10 @@
     ];
 
     services.gnome-keyring.enable = true;
-    home.packages = [pkgs.gcr]; # Provides org.gnome.keyring.SystemPrompter
-
-    services = {
-      hyprpolkitagent.enable = true;
-    };
+    home.packages = with pkgs; [
+      gcr # Provides org.gnome.keyring.SystemPrompter
+      handlr-regex # another opener
+    ];
 
     home.stateVersion = "25.05";
   };
