@@ -11,6 +11,7 @@
       ghostty.enable = true;
       git.enable = true;
       bluetuith.enable = true;
+      btop.enable = true;
     };
 
     home.packages = with pkgs; [
@@ -30,12 +31,12 @@
       hardinfo2 # System information and benchmarks for Linux systems
       wl-clipboard # Command-line copy/paste utilities for Wayland
       wf-recorder # screen recording
-      btop # hardware monitor
       ffmpeg
       xrandr # monitor utils
       mpc
       avrdude
       tmux
+      nvtopPackages.full
 
       # pretty stuff
       pipes # Screensaver

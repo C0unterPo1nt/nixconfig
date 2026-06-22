@@ -16,6 +16,14 @@
       powerOnBoot = false;
     };
 
+    services.thermald.enable = true; # Prevents cpu overheating
+    services.tlp.enable = true; # Power Management
+    hardware.nvidia.prime = {
+      offload.enable = true;
+      intelBusId = "PCI:0@0:2:0";
+      nvidiaBusId = "PCI:1@0:0:0";
+    };
+
     # desktop
     programs.hyprland.enable = true;
     # https://github.com/NixOS/nixpkgs/pull/297434#issuecomment-2348783988
