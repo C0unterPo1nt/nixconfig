@@ -1,5 +1,5 @@
 {self, ...}: {
-  flake.homeModules.homeConfiguration = {...}: {
+  flake.homeModules.homeConfiguration = {pkgs, ...}: {
     home = {
       username = "phoenix";
       homeDirectory = "/home/phoenix";
@@ -28,9 +28,11 @@
       self.homeModules.programsConfig
     ];
 
-    services = {
-      hyprpolkitagent.enable = true;
-    };
+    services.gnome-keyring.enable = true;
+    home.packages = with pkgs; [
+      gcr # Provides org.gnome.keyring.SystemPrompter
+      handlr-regex # another opener
+    ];
 
     home.stateVersion = "25.05";
   };

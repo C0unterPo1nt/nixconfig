@@ -14,7 +14,26 @@
       imports = [hyprlandScrolling hyprlandDwindle];
       hyprlandDwindle.enable = true;
 
-      services.clipse.enable = true;
+      services = {
+        hyprpolkitagent.enable = true;
+        clipse.enable = true;
+      };
+
+      programs.swappy = {
+        enable = true;
+        settings.Default = {
+          save_dir = "$HOME/Pictures/Screenshots";
+          early_exit = true;
+        };
+      };
+
+      home.packages = with pkgs; [
+        brightnessctl
+        wev # Wayland Event Viewer
+        wayland-utils # Wayland utilities
+        grim # screenshots
+        slurp # screen selection
+      ];
 
       wayland.windowManager.hyprland = {
         enable = true;
