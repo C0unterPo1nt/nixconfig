@@ -154,7 +154,7 @@
             (map (class: "float true, match:class (${class})") ["steam" "qimgv" "com.savedra1.clipse"])
             (map (title: "float true, match:title (${title})") ["Open File[s]*" "Select what to share" "Open Folder*"])
             ["tile true, match:title (Steam)"]
-            (map (class: "stay_focused on, match:class (${class})") ["com.savedra1.clipse" "swappy" "qimgv"])
+            (map (class: "stay_focused on, match:class (${class}), match:float true") ["com.savedra1.clipse" "swappy" "qimgv"])
           ];
           layerrule = [
             "blur on, match:namespace waybar"
